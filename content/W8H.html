@@ -133,11 +133,81 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">About << <a href='About.html'>Previous</a> <a href='W8H.html'>Next</a> >> W8H<br /><h1>Develop</h1>
-<p><a href="https://github.com/mdecourse/cmsimde">https://github.com/mdecourse/cmsimde</a> 的開發, 可以在一個目錄中放入 cmsimde, 然後將 up_dir 中的內容放到與 cmsimde 目錄同位階的地方, 使用 command 進入 cmsimde 目錄, 執行 python wsgi.py, 就可以啟動, 以瀏覽器 https://localhost:9443 就可以連接, 以 admin 作為管理者密碼, 就可以登入維護內容.</p>
-<p>cmsimde 的開發採用 Leo Editor, 開啟 cmsimde 目錄中的 cmsimde.leo 就可以進行程式修改, 結束後, 若要保留網際內容, 只要將 cmsimde 外部的內容倒回 up_dir 目錄中即可後續對 cmsimde 遠端倉儲進行改版.</p>
-<p>init.py 位於  up_dir 目錄, 可以設定 site_title 與 uwsgi 等變數.</p>
-<br />About << <a href='About.html'>Previous</a> <a href='W8H.html'>Next</a> >> W8H</div>
+    <div id="tipue_search_content">Develop << <a href='Develop.html'>Previous</a> <br /><h1>W8H</h1>
+<p><a href="https://gitter.im/mdecourse/Fall2020">https://gitter.im/mdecourse/Fall2020</a> uploaded in Nov12 by KMOL.</p>
+<p>Made in <a href="https://app.diagrams.net/">https://app.diagrams.net/</a> </p>
+<p><img alt="" height="596" src="./../images/kmol_env.png" width="525"/></p>
+<p>cp2020(python)</p>
+<p><a href="https://www.kaggle.com/mdecourse/cp2020w8/">https://www.kaggle.com/mdecourse/cp2020w8/</a> </p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">"""
+semester=1091
+
+courseno=0762
+
+cp
+
+1a 1091/0762
+
+1b 1091/0776
+
+cad
+
+2a 1091/0788
+
+2b 1091/0801
+"""
+# 導入 urllib.request: https://docs.python.org/3/library/urllib.request.html
+# 透過 urllib.request 模組中的 urlopen() 開啟網路 url 連結資料
+import urllib.request  # the lib that handles the url stuff
+# 定義一個輸入學期與課號,就能夠輸出各課程修課人員數列的函式
+
+def getRegList(semester, courseno):
+    # 因為課號可能以 0 開頭, 因此採字串型別輸入, 為了一致, 輸入變數一律採字串輸入
+    target_url = "https://nfulist.herokuapp.com/?semester=" + semester + "&amp;courseno=" + courseno
+    regList = []
+    for line in urllib.request.urlopen(target_url):
+        # 由於 urlopen() 取下的網際資料為 binary 格式, 可以透過 decode() 解碼為 ASCII 資料
+        regList.append(line.decode('utf-8').rstrip())
+    # 此一函式利用 return 將資料傳回
+    return regList
+    
+#print(getRegList("1091", "0776"))
+
+
+# 1b_from_nfu.txt is one line file
+#with open("1b_from_nfu.txt") as f:
+'''
+with open("/kaggle/input/w8data/1b_oneline.txt") as f:
+    # read() will read the whole content of file
+    cRead = f.read()
+print(cRead)
+'''
+
+with open("/kaggle/input/w8data/1a_from_nfu.txt") as f:
+    # read() will read the whole content of file
+    cRead = f.read()
+print(cRead)
+
+'''
+
+with open("/kaggle/input/1b_oneline.txt") as f:
+    # readline() only read one line
+    cReadline = f.readline()
+#print(cReadline)
+
+with open("1b_from_nfu.txt") as f:
+    # readlines() will read line by line and put into list
+    cReadlines = f.readlines()
+#print(cReadlines)
+
+# user split() to cut cRead string into list with " "
+cReadSplit = cRead.split(" ")
+#print(cReadSplit)
+
+for i in range(len(cReadSplit)):
+    print(cReadSplit[i])
+'''</pre>
+<p></p><br />Develop << <a href='Develop.html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">
