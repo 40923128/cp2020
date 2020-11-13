@@ -13,8 +13,13 @@
 <p><a href="https://github.com/mdecourse/cmsimde">https://github.com/mdecourse/cmsimde</a> 的開發, 可以在一個目錄中放入 cmsimde, 然後將 up_dir 中的內容放到與 cmsimde 目錄同位階的地方, 使用 command 進入 cmsimde 目錄, 執行 python wsgi.py, 就可以啟動, 以瀏覽器 https://localhost:9443 就可以連接, 以 admin 作為管理者密碼, 就可以登入維護內容.</p>
 <p>cmsimde 的開發採用 Leo Editor, 開啟 cmsimde 目錄中的 cmsimde.leo 就可以進行程式修改, 結束後, 若要保留網際內容, 只要將 cmsimde 外部的內容倒回 up_dir 目錄中即可後續對 cmsimde 遠端倉儲進行改版.</p>
 <p>init.py 位於  up_dir 目錄, 可以設定 site_title 與 uwsgi 等變數.</p>
-<h1>Creat GitHub website</h1>
-<h2>IPV6 question</h2>
+<h1>Create GitHub web</h1>
+<p>prepare:</p>
+<p>python--fall2020_v2</p>
+<p>github account</p>
+<p>website(firefox,chrome)</p>
+<p>USB(least 32GB)</p>
+<h2>IPV6 question(NFU BGA0810)</h2>
 <p>need to connect Proxy:</p>
 <p> &gt;add ".gitconfig" in Y:/home</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">[http]
@@ -22,7 +27,27 @@
 [user]
     name = useename
     email = XXXXXXXX@gm.nfu.edu.tw</pre>
-<p></p><h1>Homework</h1>
+<h2>step1-download github file(fall2020_v2)(cmd)</h2>
+<p>1.(X):</p>
+<p>2.cd (folder)</p>
+<p>3.git clone <a href="https://github.com/username/cp2020.git">https://github.com/username/cp2020.git</a></p>
+<p>4.git submodule add <a href="https://github.com/username/cmsimde.git">https://github.com/username/cmsimde.git</a> cmsimde</p>
+<p><br/>step2-clon <up_dir> file (folder)</up_dir></p>
+<p>1.open-&gt;(X):/fall2020_v2/tmp/cmsimde/up_dir</p>
+<p>2.clone &lt;up_dir&gt; file to &lt;cp2020&gt;</p>
+<h2>step2-open&amp;set web(cmd)</h2>
+<p>1.(X):</p>
+<p>2.cd tmp/cp2020/cmsimde</p>
+<p>3.python wsgi.py</p>
+<p>4.clon URL&lt;https:/IP/&gt; and use chome to connect (punch generate_pages after finished)<img alt="" height="173" src="/images/Screenshot 2020-11-13 111704.png" width="688"/> </p>
+<h2>step3-save file(cmd)</h2>
+<p>after step4</p>
+<p>1.ctrl+c to off web</p>
+<p>2.typ ".." back &lt;cp2020&gt; folder</p>
+<p>3.git add .</p>
+<p>4.git commit -m"version name"</p>
+<p>5.git pull</p>
+<h1>Homework</h1>
 <h2>W8H</h2>
 <p><a href="https://gitter.im/mdecourse/Fall2020">https://gitter.im/mdecourse/Fall2020</a> uploaded in Nov12 by KMOL.</p>
 <p>Made in <a href="https://app.diagrams.net/">https://app.diagrams.net/</a> </p>
