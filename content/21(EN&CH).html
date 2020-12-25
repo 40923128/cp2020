@@ -158,7 +158,29 @@ img.add_border {
 <p><strong><em>Gotchas and Warnings</em></strong><br/>This all seems simple enough, but there are a few caveats to the file-writing endeavor.</p>
 <p>1.You always want to make sure you close a file. The easiest strategy for this is explained above - use the with statement rather than trying to manually remember to .close() the file.<br/>2.Opening a file for writing with 'w' will overwrite any file that currently exists with that name. If you have previously written data to that file, it is now gone as soon as Python opens it.<br/>3.You can write any kind of object to any kind of file in Python, as long as you specify the correct format. The simplest thing to do is to write strings to a .txt file. But remember - you have to convert numbers or objects into strings before you write them to a file. In a later exercise, we’ll talk about writing to other formats.<br/>The best way to remember the caveats is to explore them yourself, so have at it!</p>
 <p><strong>CH(EX)</strong></p>
-<p></p><br />homework3 << <a href='homework3.html'>Previous</a> <a href='22(EN&CH).html'>Next</a> >> 22(EN&CH)</div>
+<p><strong>-----------------------------------------------------------------------------------------------------------</strong></p>
+<p><strong>EN(AN)</strong></p>
+<p><em><strong>Write To A File Solutions</strong></em><br/><em><strong>Exercise 21</strong></em><br/>Take the code from the How To Decode A Website exercise (if you didn’t do it or just want to play with some different code, use the code from the solution), and instead of printing the results to a screen, write the results to a txt file. In your code, just make up a name for the file you are saving to.</p>
+<p><em><strong>Sample solution</strong></em></p>
+<p>Extras:</p>
+<p>1.Ask the user to specify the name of the output file that will be saved.<br/>2.Sample solution<br/>The sample solution takes the out-of-the-box solution for Exercise 17 and adds two components:</p>
+<p>Asking the user for the name of a file<br/>Substitutes every print statement with a statement writing to a file<br/>Here is the full solution:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import requests
+from bs4 import BeautifulSoup
+ 
+base_url = 'http://www.nytimes.com'
+r = requests.get(base_url)
+soup = BeautifulSoup(r.text)
+
+filename = input("File to save to: ")
+
+with open(filename, 'w') as f:
+  for story_heading in soup.find_all(class_="story-heading"): 
+      if story_heading.a: 
+          f.write(story_heading.a.text.replace("\n", " ").strip())
+      else: 
+          f.write(story_heading.contents[0].strip())</pre>
+<p><strong>CH(AN)</strong></p><br />homework3 << <a href='homework3.html'>Previous</a> <a href='22(EN&CH).html'>Next</a> >> 22(EN&CH)</div>
         
     <!-- footer -->
       <div class="container">
