@@ -339,7 +339,7 @@ for i in range(len(cReadSplit)):
 <h2>homework3</h2>
 <p>range:21.~24.</p>
 <h3>21(EN&amp;CH)</h3>
-<p><strong>EN</strong></p>
+<p><strong>EN(EX)</strong></p>
 <p><strong><em>Write To A File </em></strong><br/>Exercise 21 (and Solution)<br/>Take the code from the How To Decode A Website exercise (if you didn’t do it or just want to play with some different code, use the code from the solution), and instead of printing the results to a screen, write the results to a txt file. In your code, just make up a name for the file you are saving to.</p>
 <p>Extras:</p>
 <p>Ask the user to specify the name of the output file that will be saved.<br/>Discussion<br/>Topics:</p>
@@ -362,9 +362,9 @@ for i in range(len(cReadSplit)):
 <p></p>
 <p><strong><em>Gotchas and Warnings</em></strong><br/>This all seems simple enough, but there are a few caveats to the file-writing endeavor.</p>
 <p>1.You always want to make sure you close a file. The easiest strategy for this is explained above - use the with statement rather than trying to manually remember to .close() the file.<br/>2.Opening a file for writing with 'w' will overwrite any file that currently exists with that name. If you have previously written data to that file, it is now gone as soon as Python opens it.<br/>3.You can write any kind of object to any kind of file in Python, as long as you specify the correct format. The simplest thing to do is to write strings to a .txt file. But remember - you have to convert numbers or objects into strings before you write them to a file. In a later exercise, we’ll talk about writing to other formats.<br/>The best way to remember the caveats is to explore them yourself, so have at it!</p>
-<p><strong>CH</strong></p>
+<p><strong>CH(EX)</strong></p>
 <p></p><h3>22(EN&amp;CH)</h3>
-<p><strong>EN</strong></p>
+<p><strong>EN(EX)</strong></p>
 <p><em><strong>Read From File </strong></em><br/><em>Exercise 22 (and Solution)</em><br/>Given a .txt file that has a list of a bunch of names, count how many of each name there are in the file, and print out the results to the screen. I have a .txt file for you, if you want to use it!</p>
 <p>Extra:</p>
 <p>Instead of using the .txt file from above (or instead of, if you want the challenge), take this .txt file, and count how many of each “category” of each image there are. This text file is actually a list of files corresponding to the SUN database scene recognition database, and lists the file directory hierarchy for the images. Once you take a look at the first line or two of the file, it will be clear which part represents the scene category. To do this, you’re going to have to remember a bit about string parsing in Python 3. I talked a little bit about it in this post.<br/>Discussion</p>
@@ -397,5 +397,22 @@ for i in range(len(cReadSplit)):
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">  for pair in student_scores.items():
   	print(pair)</pre>
 <p>And this prints out pairs of keys and values that look like:<span> </span><code class="highlighter-rouge">(Adama, 100)</code>, etc.</p>
-<p>Because dictionaries are not ordered, looping through them does not guarantee the key / value pairs coming out in a particular order. So be careful.</p><h3>23</h3>
-<h3>24</h3>
+<p>Because dictionaries are not ordered, looping through them does not guarantee the key / value pairs coming out in a particular order. So be careful.</p>
+<p><strong>CH(EX)</strong></p><h3>23(EN&amp;CH)</h3>
+<p><strong>EN(EX)</strong></p>
+<p>File Overlap <br/>Exercise 23 (and Solution)<br/>Given two .txt files that have lists of numbers in them, find the numbers that are overlapping. One .txt file has a list of all prime numbers under 1000, and the other .txt file has a list of happy numbers up to 1000.</p>
+<p>(If you forgot, prime numbers are numbers that can’t be divided by any other number. And yes, happy numbers are a real thing in mathematics - you can look it up on Wikipedia. The explanation is easier with an example, which I will describe below.)</p>
+<p>Discussion<br/>You’ll need to stitch together a few ideas of things I’ve previously talked about on this blog, so if you need a refresher in any of these topics, now is your chance! Of course, there are any number of ways to do this exercise, so these are only suggestions.</p>
+<p>Topics:</p>
+<p>1.Reading a file, in Exercise 21<br/>2.Number types and converting to integers from strings, in Exercise 1<br/>3.Lists, in Exercise 3 and Exercise 5</p>
+<p><strong>CH(EX)</strong></p><h3>24(EN&amp;CH)</h3>
+<p><strong>EN(EX)</strong></p>
+<p><em><strong>Exercise 24 (and Solution)</strong></em><br/>This exercise is Part 1 of 4 of the Tic Tac Toe exercise series. The other exercises are: Part 2, Part 3, and Part 4.</p>
+<p>Time for some fake graphics! Let’s say we want to draw game boards that look like this:</p>
+<p>--- --- --- <br/>| | | | <br/> --- --- --- <br/>| | | | <br/> --- --- --- <br/>| | | | <br/> --- --- --- <br/>This one is 3x3 (like in tic tac toe). Obviously, they come in many other sizes (8x8 for chess, 19x19 for Go, and many more).</p>
+<p>Ask the user what size game board they want to draw, and draw it for them to the screen using Python’s print statement.</p>
+<p>Remember that in Python 3, printing to the screen is accomplished by</p>
+<p>print("Thing to show on screen")<br/>Hint: this requires some use of functions, as were discussed previously on this blog and elsewhere on the Internet, like this TutorialsPoint link.</p>
+<p><strong><em>Topics and links for more information</em></strong><br/>The main topic of this exercise is functions. They are tricky, and deserve lots of practice and thought. Here are a few links in case you want some more reading.</p>
+<p>1.Functions on TutorialsPoint<br/>2.Hands-on Python, by Loyola University<br/>3.Learn Python the Hard Way<br/>4.ZetCode<br/>There are hundreds more out there - read and practice away!</p>
+<p><strong>CH(EX)</strong></p>

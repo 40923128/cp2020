@@ -339,7 +339,7 @@ for i in range(len(cReadSplit)):
 <h2>homework3</h2>
 <p>range:21.~24.</p>
 <h3>21(EN&amp;CH)</h3>
-<p><strong>EN</strong></p>
+<p><strong>EN(EX)</strong></p>
 <p><strong><em>Write To A File </em></strong><br/>Exercise 21 (and Solution)<br/>Take the code from the How To Decode A Website exercise (if you didn’t do it or just want to play with some different code, use the code from the solution), and instead of printing the results to a screen, write the results to a txt file. In your code, just make up a name for the file you are saving to.</p>
 <p>Extras:</p>
 <p>Ask the user to specify the name of the output file that will be saved.<br/>Discussion<br/>Topics:</p>
@@ -362,7 +362,47 @@ for i in range(len(cReadSplit)):
 <p></p>
 <p><strong><em>Gotchas and Warnings</em></strong><br/>This all seems simple enough, but there are a few caveats to the file-writing endeavor.</p>
 <p>1.You always want to make sure you close a file. The easiest strategy for this is explained above - use the with statement rather than trying to manually remember to .close() the file.<br/>2.Opening a file for writing with 'w' will overwrite any file that currently exists with that name. If you have previously written data to that file, it is now gone as soon as Python opens it.<br/>3.You can write any kind of object to any kind of file in Python, as long as you specify the correct format. The simplest thing to do is to write strings to a .txt file. But remember - you have to convert numbers or objects into strings before you write them to a file. In a later exercise, we’ll talk about writing to other formats.<br/>The best way to remember the caveats is to explore them yourself, so have at it!</p>
-<p><strong>CH</strong></p>
-<p></p><h3>22</h3>
-<h3>23</h3>
-<h3>24</h3>
+<p><strong>CH(EX)</strong></p>
+<p></p><h3>22(EN&amp;CH)</h3>
+<p><strong>EN(EX)</strong></p>
+<p><em><strong>Read From File </strong></em><br/><em>Exercise 22 (and Solution)</em><br/>Given a .txt file that has a list of a bunch of names, count how many of each name there are in the file, and print out the results to the screen. I have a .txt file for you, if you want to use it!</p>
+<p>Extra:</p>
+<p>Instead of using the .txt file from above (or instead of, if you want the challenge), take this .txt file, and count how many of each “category” of each image there are. This text file is actually a list of files corresponding to the SUN database scene recognition database, and lists the file directory hierarchy for the images. Once you take a look at the first line or two of the file, it will be clear which part represents the scene category. To do this, you’re going to have to remember a bit about string parsing in Python 3. I talked a little bit about it in this post.<br/>Discussion</p>
+<p>Topics:<br/>1.Reading a file<br/>2.Dictionaries</p>
+<p><em><strong>Reading a File</strong></em><br/>Reading a file is very analogous to writing a file, as I discussed before in Exercise 21. But, the best source is always the official Python 3.3 documentation.</p>
+<p>Simply, reading to a file takes two steps:<br/>1.Opening the file for reading<br/>2.Read!</p>
+<p><br/>Opening a file for reading is the same as opening for writing, just using a different flag:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">with open('file_to_read.txt', 'r') as open_file:
+    all_text = open_file.read()</pre>
+<p>Note how the 'r' flag stands for “read”. The code sample from above reads the entire open_file all at once into the all_text variable. But, this means that we now have a long string in all_text that can then be manipulated in Python using any string methods you want.</p>
+<p>Another way of reading data from the file is line by line:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> with open('file_to_read.txt', 'r') as open_file:
+  	line = open_file.readline()
+  	while line:
+    	print(line)
+    	line = open_file.readline()</pre>
+<p>Instead of print(line), you can imagine doing anything you want to the line of text… If you save it to a variable, you have a string that you can then use something like .strip() or .split() with.</p>
+<p><em><strong>Dictionaries</strong></em><br/>Dictionaries are Python’s way of associating two pieces of data together. The official documentation says it all.</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">  student_scores = {'Adama': 100, 'Starbuck': 75, 'Apollo': 80, 'Athena': 85, 'Agathon': 90}</pre>
+<p><span>The strings (or whatever happens to the left of the </span><code class="highlighter-rouge">:</code><span><span> </span>sign), are called<span> </span></span><code class="highlighter-rouge">keys</code><span>. When I want to access the<span> </span></span><code class="highlighter-rouge">values</code><span><span> </span>(the things to the right of the<span> </span></span><code class="highlighter-rouge">:</code><span><span> </span>sign), I need to ask the dictionary for the value associated with the key:</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">  adama_score = student_scores['Adama']</pre>
+<p><span>You can then modify the score and save it back to the dictionary:</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> adama_score = student_scores['Adama']
+  adama_score += 100	% adama_score is now 200. This doesn't change the dictionary value
+  student_scores['Adama'] = adama_score		% the score in the dictionary is now updated</pre>
+<p><span>I can’t ask the dictionary for the key associated with a value, but I can get a list of all the keys, and the same for all the values:</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">  all_scores = student_scores.keys()
+  all_names = student_scores.values()</pre>
+<p>I can use the in keyword (just like in lists), do dictionary comprehensions like list comprehensions (these are cool, take a look at the official bit about these), and iterate over the elements in the dictionary (the syntax is just a little bit different).</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">  for pair in student_scores.items():
+  	print(pair)</pre>
+<p>And this prints out pairs of keys and values that look like:<span> </span><code class="highlighter-rouge">(Adama, 100)</code>, etc.</p>
+<p>Because dictionaries are not ordered, looping through them does not guarantee the key / value pairs coming out in a particular order. So be careful.</p>
+<p><strong>CH(EX)</strong></p><h3>23(EN&amp;CH)</h3>
+<p><strong>EN(EX)</strong></p>
+<p>File Overlap <br/>Exercise 23 (and Solution)<br/>Given two .txt files that have lists of numbers in them, find the numbers that are overlapping. One .txt file has a list of all prime numbers under 1000, and the other .txt file has a list of happy numbers up to 1000.</p>
+<p>(If you forgot, prime numbers are numbers that can’t be divided by any other number. And yes, happy numbers are a real thing in mathematics - you can look it up on Wikipedia. The explanation is easier with an example, which I will describe below.)</p>
+<p>Discussion<br/>You’ll need to stitch together a few ideas of things I’ve previously talked about on this blog, so if you need a refresher in any of these topics, now is your chance! Of course, there are any number of ways to do this exercise, so these are only suggestions.</p>
+<p>Topics:</p>
+<p>1.Reading a file, in Exercise 21<br/>2.Number types and converting to integers from strings, in Exercise 1<br/>3.Lists, in Exercise 3 and Exercise 5</p>
+<p><strong>CH(EX)</strong></p><h3>24</h3>
