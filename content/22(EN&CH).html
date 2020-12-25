@@ -133,13 +133,41 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Develop << <a href='Develop.html'>Previous</a> <a href='IPV6 question(NFU BGA0810).html'>Next</a> >> IPV6 question(NFU BGA0810)<br /><h1>Create GitHub web</h1>
-<p>prepare:</p>
-<p>python--fall2020_v2</p>
-<p>github account</p>
-<p>website(firefox,chrome)</p>
-<p>USB(least 32GB)</p>
-<br />Develop << <a href='Develop.html'>Previous</a> <a href='IPV6 question(NFU BGA0810).html'>Next</a> >> IPV6 question(NFU BGA0810)</div>
+    <div id="tipue_search_content">21(EN&CH) << <a href='21(EN&CH).html'>Previous</a> <a href='23.html'>Next</a> >> 23<br /><h1>22(EN&CH)</h1>
+<p><strong>EN</strong></p>
+<p><em><strong>Read From File </strong></em><br/><em>Exercise 22 (and Solution)</em><br/>Given a .txt file that has a list of a bunch of names, count how many of each name there are in the file, and print out the results to the screen. I have a .txt file for you, if you want to use it!</p>
+<p>Extra:</p>
+<p>Instead of using the .txt file from above (or instead of, if you want the challenge), take this .txt file, and count how many of each “category” of each image there are. This text file is actually a list of files corresponding to the SUN database scene recognition database, and lists the file directory hierarchy for the images. Once you take a look at the first line or two of the file, it will be clear which part represents the scene category. To do this, you’re going to have to remember a bit about string parsing in Python 3. I talked a little bit about it in this post.<br/>Discussion</p>
+<p>Topics:<br/>1.Reading a file<br/>2.Dictionaries</p>
+<p><em><strong>Reading a File</strong></em><br/>Reading a file is very analogous to writing a file, as I discussed before in Exercise 21. But, the best source is always the official Python 3.3 documentation.</p>
+<p>Simply, reading to a file takes two steps:<br/>1.Opening the file for reading<br/>2.Read!</p>
+<p><br/>Opening a file for reading is the same as opening for writing, just using a different flag:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">with open('file_to_read.txt', 'r') as open_file:
+    all_text = open_file.read()</pre>
+<p>Note how the 'r' flag stands for “read”. The code sample from above reads the entire open_file all at once into the all_text variable. But, this means that we now have a long string in all_text that can then be manipulated in Python using any string methods you want.</p>
+<p>Another way of reading data from the file is line by line:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> with open('file_to_read.txt', 'r') as open_file:
+  	line = open_file.readline()
+  	while line:
+    	print(line)
+    	line = open_file.readline()</pre>
+<p>Instead of print(line), you can imagine doing anything you want to the line of text… If you save it to a variable, you have a string that you can then use something like .strip() or .split() with.</p>
+<p><em><strong>Dictionaries</strong></em><br/>Dictionaries are Python’s way of associating two pieces of data together. The official documentation says it all.</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">  student_scores = {'Adama': 100, 'Starbuck': 75, 'Apollo': 80, 'Athena': 85, 'Agathon': 90}</pre>
+<p><span>The strings (or whatever happens to the left of the </span><code class="highlighter-rouge">:</code><span><span> </span>sign), are called<span> </span></span><code class="highlighter-rouge">keys</code><span>. When I want to access the<span> </span></span><code class="highlighter-rouge">values</code><span><span> </span>(the things to the right of the<span> </span></span><code class="highlighter-rouge">:</code><span><span> </span>sign), I need to ask the dictionary for the value associated with the key:</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">  adama_score = student_scores['Adama']</pre>
+<p><span>You can then modify the score and save it back to the dictionary:</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> adama_score = student_scores['Adama']
+  adama_score += 100	% adama_score is now 200. This doesn't change the dictionary value
+  student_scores['Adama'] = adama_score		% the score in the dictionary is now updated</pre>
+<p><span>I can’t ask the dictionary for the key associated with a value, but I can get a list of all the keys, and the same for all the values:</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">  all_scores = student_scores.keys()
+  all_names = student_scores.values()</pre>
+<p>I can use the in keyword (just like in lists), do dictionary comprehensions like list comprehensions (these are cool, take a look at the official bit about these), and iterate over the elements in the dictionary (the syntax is just a little bit different).</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">  for pair in student_scores.items():
+  	print(pair)</pre>
+<p>And this prints out pairs of keys and values that look like:<span> </span><code class="highlighter-rouge">(Adama, 100)</code>, etc.</p>
+<p>Because dictionaries are not ordered, looping through them does not guarantee the key / value pairs coming out in a particular order. So be careful.</p><br />21(EN&CH) << <a href='21(EN&CH).html'>Previous</a> <a href='23.html'>Next</a> >> 23</div>
         
     <!-- footer -->
       <div class="container">

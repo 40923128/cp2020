@@ -255,7 +255,8 @@ for i in range(len(cReadSplit)):
 <p><span>In the next image below, we see an example of two devices that transmitted at the same time. This simultaneous transmission resulted in a data collision, causing the transmission to be broken.</span></p>
 <p><span><img alt="" height="363" src="/images/HWP92-3.png" width="520"/></span></p>
 <p><span>When a collision is detected, both devices choose a backoff time at random, and then attempt to retransmit again. In the diagram below, the computers choose to wait 200 milliseconds and 300 milliseconds, respectively. When that time is up, they will attempt to sense if another machine is already transmitting. If there is nothing detected, the first machine will transmit its message. Once completed, the second machine will then transmit its message, after its 300 millisecond wait time.</span></p>
-<p><span><img alt="" height="366" src="/images/HWP92-4.png" width="525"/></span></p><h3>中文(從P77開始)</h3>
+<p><span><img alt="" height="366" src="/images/HWP92-4.png" width="525"/></span></p>
+<h3>中文(從P77開始)</h3>
 <p><strong>PCH 9 /拓撲定義的網絡</strong></p>
 <p><em><strong>總覽</strong></em><br/>      在本模塊中，我們將涵蓋各種類型的網絡，包括局域網，廣域網，個人局域網和城域網。接下來，我們將介紹各種網絡關係，例如:客戶端/服務器和對等網絡，並重點介紹網絡使用的資源類型。最後，我們將討論我們的網絡拓撲，例如:總線，環形，星形，全網格和混合網絡拓撲。<br/>地理定義的網絡<br/> 網絡由它們所覆蓋的地理位置定義。我們從一個人周圍的區域開始，將該區域稱為個人區域網絡（PAN）。接下來，我們向外擴展到局域網（LAN），該局域網可以包含整個辦公樓層或建築物。再次向外移動，我們有了城域網，該城域網通過將多個LAN連接在一起而覆蓋了整個城市。最後，我們有廣域網（WAN）。這是我們按地理位置定義的最大網絡，它可以遍及全國，甚至遍及全球。WAN就是一個很好的例子，因為Internet將許多網絡連接在一起並遍及全球。<br/>個人區域網<br/> PAN的範圍很小，只有幾米。如果您將雙手伸向兩側並轉一圈，則這是大多數PAN的物理範圍。藍牙是我們用於創建PAN的主要內容之一，儘管USB和紅外也可以用於這些網絡。藍牙的範圍在1米至100米之間，具體取決於您使用的藍牙類別，但是大多數常見的藍牙設備是限於10米的第二類設備。PAN的一些很好的例子是USB硬盤驅動器和筆記本電腦之間的連接，或者是無線連接到汽車立體聲系統的藍牙手機。<br/>局域網<br/> 地理定義的下一種網絡類型是LAN，它代表局域網。局域網由幾個設備組成，這些設備使計算機可以在一個較小的地理區域內相互連接。局域網最基本的是使用集線器，交換機或無線訪問點將多個工作站連接在一起。局域網的距離有限，每個網段通常限制在100米或更短。通常，LAN用於將辦公室地板或較小網絡中的整個辦公樓聯網。LAN通常以有線或無線方式連接。如果已連接，則使用符合以太網（IEEE 802.3）標準的非屏蔽雙絞線電纜進行連接；如果為無線，則它們使用Wi-Fi無線電信號（IEEE 802.11）標准進行連接。<em style="font-size: 11px;"><strong>都會網</strong></em></p>
 <p>      我們可以在地理上定義網絡的另一種方法是將其作為MAN。城域網連接整個城市或縣的分散位置。這比局域網覆蓋更大的地理區域，但是比廣域網覆蓋的區域小得多。<br/><em><strong>廣域網</strong></em><br/>      WAN用於將地理位置遙遠的網絡組件連接在一起。WAN的一個示例是將洛杉磯的辦公室連接到紐約的另一公司辦公室。這可以通過Internet上的虛擬專用網絡（VPN）或使用將城市對實際連接在一起的專用租用線路來完成。無論採用哪種連接方法，來自洛杉磯和紐約的兩個局域網一旦連接，它們便成為更大的廣域網拓撲的一部分。</p>
@@ -333,5 +334,68 @@ for i in range(len(cReadSplit)):
 <p><span>四個設備以物理總線拓撲連接。</span><span>每個設備對網絡都有平等的訪問權限。</span><span>在這裡，所有設備都在監聽，試圖確定是否有其他設備在開始傳輸之前進行通信。</span></p>
 <p><span>這種同時傳輸導致數據衝突，導致傳輸中斷。</span></p>
 <p><span><span>當檢測到衝突時，兩個設備都會隨機選擇一個退避時間，然後嘗試重新傳輸。</span><span>計算機分別選擇等待200毫秒和300毫秒。</span><span>時間到時，他們將嘗試檢測另一台機器是否已經在傳輸。</span><span>如果未檢測到任何內容，則第一台機器將發送其消息。</span><span>一旦完成，第二台機器將在其300毫秒的等待時間之後發送其消息。</span></span></p>
-<p><strong></strong></p><h2>homework2</h2>
+<p><strong></strong></p>
+<h2>homework2</h2>
 <h2>homework3</h2>
+<p>range:21.~24.</p>
+<h3>21(EN&amp;CH)</h3>
+<p><strong>EN</strong></p>
+<p><strong><em>Write To A File </em></strong><br/>Exercise 21 (and Solution)<br/>Take the code from the How To Decode A Website exercise (if you didn’t do it or just want to play with some different code, use the code from the solution), and instead of printing the results to a screen, write the results to a txt file. In your code, just make up a name for the file you are saving to.</p>
+<p>Extras:</p>
+<p>Ask the user to specify the name of the output file that will be saved.<br/>Discussion<br/>Topics:</p>
+<p><strong><em>Writing to a file</em></strong><br/>1.Gotchas and warnings<br/>2.Saving to a file<br/>3.Python makes it very easy to write to a file. Depending on what kind of file you want to write to and what kind of data you are writing, your options are plenty. I will show you the simplest form of writing to a file - writing plain text to a plain old text file. In other words, writing a string to a .txt file.</p>
+<p>The code looks like this:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">with open('file_to_save.txt', 'w') as open_file:
+    open_file.write('A string to write')</pre>
+<p>An alternate way of writing the same code is like so:</p>
+<figure class="highlight"></figure>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> open_file = open('file_to_save.txt', 'w')
+  open_file.write('A string to write')
+  open_file.close()</pre>
+<p>The first is considered better programming practice, but the second might explain a little bit better what is going on in the first code sample.</p>
+<p>Let’s go through line by line.</p>
+<p>The with open('file_to_save.txt', 'w') as open_file syntax is new for us - all it means is that inside the code block indented underneath, there will be a variable called open_file that will represent the file object. You can pick any name for this file - it is just a variable name. The open() function takes two arguments - the first is the name of a file as a string (if the file does not exist, Python will create it), and a second argument that represents how the file should be opened. There are a few ways you can open files (read all about it at the official Python documentation), but in short, there are two most common ones: 'r' and 'w'. 'r' stands for “read only” and 'w' stands for “write only” (you can open for both read and write using 'r+'). You should tell Python which way you want to open the file - you don’t want to modify a file you are only looking at, and opening a file with 'w' when you want to only read it will overwrite the old file.</p>
+<p>When you open a file, it will look for it in the same directory as the Python program. If there is no file with that name, Python will create a file in that directory with the given name. To look for files in other directories, use the ../ notation to move up and down directories as necessary.</p>
+<p>As soon as the program exists the with code block for any reason, it will close the file. In the second code example case, I created the file object by opening the file and saving the object to my variable open_file. I then had to remember to close the file manually at the end of my program. This is considered worse programming practice, because in case there is an error in the program and it terminates before hitting the .close() statement, there will be a floating open file object somewhere in memory. You do this enough times and it becomes a problem, especially for production environments. For playing around with Python, this is not usually a problem, but why not learn how to program correctly the first time?</p>
+<p>The write() portion is simple - call .write() with a string (if something is not a string, turn it into a string first), and it will write to the end of the file.</p>
+<p>When the program exists the with statement, the file will automatically be saved. In fact, every time after a .write() statement, the file will be automatically saved.</p>
+<p></p>
+<p><strong><em>Gotchas and Warnings</em></strong><br/>This all seems simple enough, but there are a few caveats to the file-writing endeavor.</p>
+<p>1.You always want to make sure you close a file. The easiest strategy for this is explained above - use the with statement rather than trying to manually remember to .close() the file.<br/>2.Opening a file for writing with 'w' will overwrite any file that currently exists with that name. If you have previously written data to that file, it is now gone as soon as Python opens it.<br/>3.You can write any kind of object to any kind of file in Python, as long as you specify the correct format. The simplest thing to do is to write strings to a .txt file. But remember - you have to convert numbers or objects into strings before you write them to a file. In a later exercise, we’ll talk about writing to other formats.<br/>The best way to remember the caveats is to explore them yourself, so have at it!</p>
+<p><strong>CH</strong></p>
+<p></p><h3>22(EN&amp;CH)</h3>
+<p><strong>EN</strong></p>
+<p><em><strong>Read From File </strong></em><br/><em>Exercise 22 (and Solution)</em><br/>Given a .txt file that has a list of a bunch of names, count how many of each name there are in the file, and print out the results to the screen. I have a .txt file for you, if you want to use it!</p>
+<p>Extra:</p>
+<p>Instead of using the .txt file from above (or instead of, if you want the challenge), take this .txt file, and count how many of each “category” of each image there are. This text file is actually a list of files corresponding to the SUN database scene recognition database, and lists the file directory hierarchy for the images. Once you take a look at the first line or two of the file, it will be clear which part represents the scene category. To do this, you’re going to have to remember a bit about string parsing in Python 3. I talked a little bit about it in this post.<br/>Discussion</p>
+<p>Topics:<br/>1.Reading a file<br/>2.Dictionaries</p>
+<p><em><strong>Reading a File</strong></em><br/>Reading a file is very analogous to writing a file, as I discussed before in Exercise 21. But, the best source is always the official Python 3.3 documentation.</p>
+<p>Simply, reading to a file takes two steps:<br/>1.Opening the file for reading<br/>2.Read!</p>
+<p><br/>Opening a file for reading is the same as opening for writing, just using a different flag:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">with open('file_to_read.txt', 'r') as open_file:
+    all_text = open_file.read()</pre>
+<p>Note how the 'r' flag stands for “read”. The code sample from above reads the entire open_file all at once into the all_text variable. But, this means that we now have a long string in all_text that can then be manipulated in Python using any string methods you want.</p>
+<p>Another way of reading data from the file is line by line:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> with open('file_to_read.txt', 'r') as open_file:
+  	line = open_file.readline()
+  	while line:
+    	print(line)
+    	line = open_file.readline()</pre>
+<p>Instead of print(line), you can imagine doing anything you want to the line of text… If you save it to a variable, you have a string that you can then use something like .strip() or .split() with.</p>
+<p><em><strong>Dictionaries</strong></em><br/>Dictionaries are Python’s way of associating two pieces of data together. The official documentation says it all.</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">  student_scores = {'Adama': 100, 'Starbuck': 75, 'Apollo': 80, 'Athena': 85, 'Agathon': 90}</pre>
+<p><span>The strings (or whatever happens to the left of the </span><code class="highlighter-rouge">:</code><span><span> </span>sign), are called<span> </span></span><code class="highlighter-rouge">keys</code><span>. When I want to access the<span> </span></span><code class="highlighter-rouge">values</code><span><span> </span>(the things to the right of the<span> </span></span><code class="highlighter-rouge">:</code><span><span> </span>sign), I need to ask the dictionary for the value associated with the key:</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">  adama_score = student_scores['Adama']</pre>
+<p><span>You can then modify the score and save it back to the dictionary:</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> adama_score = student_scores['Adama']
+  adama_score += 100	% adama_score is now 200. This doesn't change the dictionary value
+  student_scores['Adama'] = adama_score		% the score in the dictionary is now updated</pre>
+<p><span>I can’t ask the dictionary for the key associated with a value, but I can get a list of all the keys, and the same for all the values:</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">  all_scores = student_scores.keys()
+  all_names = student_scores.values()</pre>
+<p>I can use the in keyword (just like in lists), do dictionary comprehensions like list comprehensions (these are cool, take a look at the official bit about these), and iterate over the elements in the dictionary (the syntax is just a little bit different).</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">  for pair in student_scores.items():
+  	print(pair)</pre>
+<p>And this prints out pairs of keys and values that look like:<span> </span><code class="highlighter-rouge">(Adama, 100)</code>, etc.</p>
+<p>Because dictionaries are not ordered, looping through them does not guarantee the key / value pairs coming out in a particular order. So be careful.</p><h3>23</h3>
+<h3>24</h3>

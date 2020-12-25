@@ -255,7 +255,8 @@ for i in range(len(cReadSplit)):
 <p><span>In the next image below, we see an example of two devices that transmitted at the same time. This simultaneous transmission resulted in a data collision, causing the transmission to be broken.</span></p>
 <p><span><img alt="" height="363" src="/images/HWP92-3.png" width="520"/></span></p>
 <p><span>When a collision is detected, both devices choose a backoff time at random, and then attempt to retransmit again. In the diagram below, the computers choose to wait 200 milliseconds and 300 milliseconds, respectively. When that time is up, they will attempt to sense if another machine is already transmitting. If there is nothing detected, the first machine will transmit its message. Once completed, the second machine will then transmit its message, after its 300 millisecond wait time.</span></p>
-<p><span><img alt="" height="366" src="/images/HWP92-4.png" width="525"/></span></p><h3>中文(從P77開始)</h3>
+<p><span><img alt="" height="366" src="/images/HWP92-4.png" width="525"/></span></p>
+<h3>中文(從P77開始)</h3>
 <p><strong>PCH 9 /拓撲定義的網絡</strong></p>
 <p><em><strong>總覽</strong></em><br/>      在本模塊中，我們將涵蓋各種類型的網絡，包括局域網，廣域網，個人局域網和城域網。接下來，我們將介紹各種網絡關係，例如:客戶端/服務器和對等網絡，並重點介紹網絡使用的資源類型。最後，我們將討論我們的網絡拓撲，例如:總線，環形，星形，全網格和混合網絡拓撲。<br/>地理定義的網絡<br/> 網絡由它們所覆蓋的地理位置定義。我們從一個人周圍的區域開始，將該區域稱為個人區域網絡（PAN）。接下來，我們向外擴展到局域網（LAN），該局域網可以包含整個辦公樓層或建築物。再次向外移動，我們有了城域網，該城域網通過將多個LAN連接在一起而覆蓋了整個城市。最後，我們有廣域網（WAN）。這是我們按地理位置定義的最大網絡，它可以遍及全國，甚至遍及全球。WAN就是一個很好的例子，因為Internet將許多網絡連接在一起並遍及全球。<br/>個人區域網<br/> PAN的範圍很小，只有幾米。如果您將雙手伸向兩側並轉一圈，則這是大多數PAN的物理範圍。藍牙是我們用於創建PAN的主要內容之一，儘管USB和紅外也可以用於這些網絡。藍牙的範圍在1米至100米之間，具體取決於您使用的藍牙類別，但是大多數常見的藍牙設備是限於10米的第二類設備。PAN的一些很好的例子是USB硬盤驅動器和筆記本電腦之間的連接，或者是無線連接到汽車立體聲系統的藍牙手機。<br/>局域網<br/> 地理定義的下一種網絡類型是LAN，它代表局域網。局域網由幾個設備組成，這些設備使計算機可以在一個較小的地理區域內相互連接。局域網最基本的是使用集線器，交換機或無線訪問點將多個工作站連接在一起。局域網的距離有限，每個網段通常限制在100米或更短。通常，LAN用於將辦公室地板或較小網絡中的整個辦公樓聯網。LAN通常以有線或無線方式連接。如果已連接，則使用符合以太網（IEEE 802.3）標準的非屏蔽雙絞線電纜進行連接；如果為無線，則它們使用Wi-Fi無線電信號（IEEE 802.11）標准進行連接。<em style="font-size: 11px;"><strong>都會網</strong></em></p>
 <p>      我們可以在地理上定義網絡的另一種方法是將其作為MAN。城域網連接整個城市或縣的分散位置。這比局域網覆蓋更大的地理區域，但是比廣域網覆蓋的區域小得多。<br/><em><strong>廣域網</strong></em><br/>      WAN用於將地理位置遙遠的網絡組件連接在一起。WAN的一個示例是將洛杉磯的辦公室連接到紐約的另一公司辦公室。這可以通過Internet上的虛擬專用網絡（VPN）或使用將城市對實際連接在一起的專用租用線路來完成。無論採用哪種連接方法，來自洛杉磯和紐約的兩個局域網一旦連接，它們便成為更大的廣域網拓撲的一部分。</p>
@@ -317,7 +318,51 @@ for i in range(len(cReadSplit)):
 <p id="N10678" lang=""><span>由於電纜和連接器的類型多種多樣，因此有時需要從一種類型的媒體轉換為另一種類型的媒體。例如，如果您必須在相距一英里的建築物中的兩個LAN之間建立連接，但是您的網絡使用Cat 5e，UTP電纜，那麼如何建立連接？當您查看路由器時，會發現它們僅接受RJ-45連接，但您知道不能將Cat 5e電纜的長度超過100米。您如何解決這個問題？帶媒體轉換器。</span></p>
 <p id="N1067B" lang=""><span><span>使用媒體轉換器，您可以將RJ-45連接轉換為ST，SC或LC光纖連接，如下圖所示。</span><span>然後，將一英里的光纜連接到另一座建築物，並使用媒體轉換器將ST，SC或LC光纖連接轉換回另一台路由器所需的RJ-45。</span><span>因為這是一個簡單的“啞”設備，所以它僅轉換在第一媒體類型上接收到的所有內容，然後將其重複播放回第二媒體類型。</span><span>媒體轉換器的常見類型是從以太網（銅）到光纖（然後向後）或從同軸電纜到光纖（然後向後）。</span></span></p>
 <p lang=""><span><span></span></span></p>
-<p></p>
-<p></p>
-<p><strong></strong></p><h2>homework2</h2>
+<p><strong>PCH 12 /以太網標準</strong></p>
+<p>以太網標準                                          P90<br/>以太網技術                                          P91<br/>載波偵聽多路訪問/衝突檢測                     P92<br/>標準的演變                                          P93<br/>使用100 / 1000BaseT規劃基本的網絡連接 P94<br/>區分以太網和TCP / IP                            P95</p>
+<p><strong>PCH 12 /以太網標準</strong><br/><em><strong>總覽</strong></em><br/>在本模塊中，我們將討論隨著時間的推移如何開發各種以太網標準。我們還將討論為什麼需要這些標準以及這些標準對行業的影響。另外，我們將涵蓋各種類型的網絡媒體標準。我們將介紹10Base-T（802.3i，1990）以及100Base-T和1000Base-T（1GBASE-T或1 GigE）以太網標準，它們是當前辦公網絡中最常見的標準。我們將發現如何使用100BaseT規劃基本的網絡連接。最後，我們將介紹以太網和TCP / IP之間的差異。</p>
+<p><strong>PCH 12 /以太網技術</strong></p>
+<p>在以太網成為主導技術之前，存在多種類型的網絡技術爭奪市場份額。一方面，以太網只是眾多競爭標準之一，包括令牌環，光纖分佈式數據接口（FDDI）等。到1990年代後期，單一標準顯然已成為辦公和住宅網絡中的主要選擇：IEEE 802.3以太網。以太網使用各種介質類型，從同軸電纜到雙絞銅線和光纖電纜（在較早的模塊中討論）。802.3以太網標準和使用幀在包括無線802.11在內的各種媒體上進行通信的概念如今非常盛行，了解以太網的基本知識（包括每個標準對我們網絡的各種速度和距離限制）至關重要。</p>
+<p>最初的802.3以太網標準以半雙工傳輸速率通過同軸電纜發送數據，這意味著設備只能以單獨的間隔交替發送（TX）或接收（RX），因為這兩個數據使用相同的路徑。這類似於使用對講機而不是電話進行通信。</p>
+<p>由於電纜的尺寸，這種同軸電纜設計被稱為Thinnet，後來又稱為Thinnet，並且主要用於總線和環形網絡拓撲中。</p>
+<p>最初被指定為10Base5的IEEE 802.3標準Thicknet提供的最大帶寬為10Mbps，並且距離限制為500米。Thinnet或IEEE 10Base2使用較小類型的同軸電纜，並且提供的最大帶寬為10 Mbps，但限制為185米。最終，該行業從同軸電纜過渡到非屏蔽雙絞線電纜。</p>
+<p>雙絞線電纜（稱為10BaseT）與3類電纜提供了相同的10 Mbps半雙工最大帶寬，但由於缺少同軸電纜提供的額外屏蔽，因此距離限制為100米。儘管衰減增加（信號強度隨著距離的增加而損失），但由於易於安裝且總體成本較低，網絡設計人員仍選擇雙絞線佈線。同軸電纜不受歡迎，並且802.3以太網標準繼續發展，雙絞線電纜類別的數據速率更快。</p>
+<p>以太網必須回答的設計問題是設備應如何訪問網絡。通過單線對進行半雙工傳輸（TX或RX）的性質意味著衝突迫在眉睫。訪問應該是確定性和有序的，還是基於競爭的且混亂的？較早的基於環的網絡（例如令牌環）是在必須有順序的前提下開發的：每台機器都將等待其輪流發送其數據，直到接收到圍繞環傳遞的電子令牌為止。這類似於美洲原住民和其他原住民部落使用的“說話棒”或“發言人的工作人員”，其中工作人員（令牌）使人員可以發言，其餘的小組成員則可以收聽。另一方面，以太網以基於競爭的模型為前提。這更加混亂，並且允許網絡上的任何設備在其希望的任何時間進行傳輸。這種類型的原理存在的問題是，要弄清楚如何防止兩個設備同時傳輸並導致數據衝突。對於以太網，答案是以一種稱為載波偵聽多路訪問/衝突檢測（CSMA / CD）的媒體訪問控制方法的形式出現的。</p>
+<p><strong>PCH 12 /載波偵聽多路訪問/衝突檢測</strong></p>
+<p>半雙工傳輸的性質帶來了對CSMA / CD的需求，它允許所有設備在需要時傳輸數據。運營商感知部分意味著設備首先“監聽”網絡以在會話中找到“中斷”。如果該設備聽不到其他設備的傳輸，則它將開始傳輸。多路訪問是指每台設備始終具有對網絡的平等訪問權限。這與令牌環網絡不同，在令牌環網絡中，每個設備都必須在發送之前等待信號（令牌）。最後，我們將碰撞檢測作為CSMA / CD控制方法的一部分。如果碰巧有兩個設備都準備好進行傳輸，則它們會在通話中“偵聽”網絡中的“失敗”，並且都同時開始傳輸，</p>
+<p>下圖描述了CSMA / CD和CSMA / CA簡化算法。左分支是半雙工以太網使用的CSMA / CD，右分支是802.11無線LAN（也是半雙工）使用的CSMA / CA。</p>
+<p><span>四個設備以物理總線拓撲連接。</span><span>每個設備對網絡都有平等的訪問權限。</span><span>在這裡，所有設備都在監聽，試圖確定是否有其他設備在開始傳輸之前進行通信。</span></p>
+<p><span>這種同時傳輸導致數據衝突，導致傳輸中斷。</span></p>
+<p><span><span>當檢測到衝突時，兩個設備都會隨機選擇一個退避時間，然後嘗試重新傳輸。</span><span>計算機分別選擇等待200毫秒和300毫秒。</span><span>時間到時，他們將嘗試檢測另一台機器是否已經在傳輸。</span><span>如果未檢測到任何內容，則第一台機器將發送其消息。</span><span>一旦完成，第二台機器將在其300毫秒的等待時間之後發送其消息。</span></span></p>
+<p><strong></strong></p>
+<h2>homework2</h2>
 <h2>homework3</h2>
+<p>range:21.~24.</p>
+<h3>21(EN&amp;CH)</h3>
+<p><strong>EN</strong></p>
+<p><strong><em>Write To A File </em></strong><br/>Exercise 21 (and Solution)<br/>Take the code from the How To Decode A Website exercise (if you didn’t do it or just want to play with some different code, use the code from the solution), and instead of printing the results to a screen, write the results to a txt file. In your code, just make up a name for the file you are saving to.</p>
+<p>Extras:</p>
+<p>Ask the user to specify the name of the output file that will be saved.<br/>Discussion<br/>Topics:</p>
+<p><strong><em>Writing to a file</em></strong><br/>1.Gotchas and warnings<br/>2.Saving to a file<br/>3.Python makes it very easy to write to a file. Depending on what kind of file you want to write to and what kind of data you are writing, your options are plenty. I will show you the simplest form of writing to a file - writing plain text to a plain old text file. In other words, writing a string to a .txt file.</p>
+<p>The code looks like this:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">with open('file_to_save.txt', 'w') as open_file:
+    open_file.write('A string to write')</pre>
+<p>An alternate way of writing the same code is like so:</p>
+<figure class="highlight"></figure>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> open_file = open('file_to_save.txt', 'w')
+  open_file.write('A string to write')
+  open_file.close()</pre>
+<p>The first is considered better programming practice, but the second might explain a little bit better what is going on in the first code sample.</p>
+<p>Let’s go through line by line.</p>
+<p>The with open('file_to_save.txt', 'w') as open_file syntax is new for us - all it means is that inside the code block indented underneath, there will be a variable called open_file that will represent the file object. You can pick any name for this file - it is just a variable name. The open() function takes two arguments - the first is the name of a file as a string (if the file does not exist, Python will create it), and a second argument that represents how the file should be opened. There are a few ways you can open files (read all about it at the official Python documentation), but in short, there are two most common ones: 'r' and 'w'. 'r' stands for “read only” and 'w' stands for “write only” (you can open for both read and write using 'r+'). You should tell Python which way you want to open the file - you don’t want to modify a file you are only looking at, and opening a file with 'w' when you want to only read it will overwrite the old file.</p>
+<p>When you open a file, it will look for it in the same directory as the Python program. If there is no file with that name, Python will create a file in that directory with the given name. To look for files in other directories, use the ../ notation to move up and down directories as necessary.</p>
+<p>As soon as the program exists the with code block for any reason, it will close the file. In the second code example case, I created the file object by opening the file and saving the object to my variable open_file. I then had to remember to close the file manually at the end of my program. This is considered worse programming practice, because in case there is an error in the program and it terminates before hitting the .close() statement, there will be a floating open file object somewhere in memory. You do this enough times and it becomes a problem, especially for production environments. For playing around with Python, this is not usually a problem, but why not learn how to program correctly the first time?</p>
+<p>The write() portion is simple - call .write() with a string (if something is not a string, turn it into a string first), and it will write to the end of the file.</p>
+<p>When the program exists the with statement, the file will automatically be saved. In fact, every time after a .write() statement, the file will be automatically saved.</p>
+<p></p>
+<p><strong><em>Gotchas and Warnings</em></strong><br/>This all seems simple enough, but there are a few caveats to the file-writing endeavor.</p>
+<p>1.You always want to make sure you close a file. The easiest strategy for this is explained above - use the with statement rather than trying to manually remember to .close() the file.<br/>2.Opening a file for writing with 'w' will overwrite any file that currently exists with that name. If you have previously written data to that file, it is now gone as soon as Python opens it.<br/>3.You can write any kind of object to any kind of file in Python, as long as you specify the correct format. The simplest thing to do is to write strings to a .txt file. But remember - you have to convert numbers or objects into strings before you write them to a file. In a later exercise, we’ll talk about writing to other formats.<br/>The best way to remember the caveats is to explore them yourself, so have at it!</p>
+<p><strong>CH</strong></p>
+<p></p><h3>22</h3>
+<h3>23</h3>
+<h3>24</h3>
