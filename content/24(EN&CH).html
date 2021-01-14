@@ -144,6 +144,16 @@ img.add_border {
 <p><strong><em>Topics and links for more information</em></strong><br/>The main topic of this exercise is functions. They are tricky, and deserve lots of practice and thought. Here are a few links in case you want some more reading.</p>
 <p>1.Functions on TutorialsPoint<br/>2.Hands-on Python, by Loyola University<br/>3.Learn Python the Hard Way<br/>4.ZetCode<br/>There are hundreds more out there - read and practice away!</p>
 <p><strong>CH(EX)</strong></p>
+<p>畫遊戲板 <br/>練習24（和解決方案）<br/>此練習是Tic Tac Toe練習系列4的第1部分。其他練習是：第2部分，第3部分和第4部分。</p>
+<p>是時候購買一些假圖形了！假設我們要繪製如下游戲板：</p>
+<p>--- --- --- <br/>| | | | <br/> --- --- --- <br/>| | | | <br/> --- --- --- <br/>| | | | <br/> --- --- --- <br/>這是3x3（就像井字遊戲一樣）。顯然，它們有許多其他尺寸（國際象棋為8x8，圍棋為19x19等）。</p>
+<p>詢問用戶他們要繪製什麼尺寸的遊戲板，並使用Python的print語句將其繪製到屏幕上。</p>
+<p>請記住，在Python 3中，打印到屏幕是通過以下方式完成的：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false"> print("Thing to show on screen")</pre>
+<p></p>
+<p>提示：這需要某種功能的使用，如本博客之前和Internet上其他地方所討論的，例如TutorialsPoint鏈接。</p>
+<p>主題和鏈接，以獲取更多信息<br/>本練習的主要主題是功能。它們很棘手，值得大量實踐和思考。這裡有一些鏈接，以備您需要更多閱讀。</p>
+<p>1.TutorialsPoint上的功能<br/>2.Loyola University的動手Python<br/>3.艱苦學習Python<br/>4.PutCode</p>
 <p><strong>-----------------------------------------------------------------------------------------------------------</strong></p>
 <p><strong>EN(AN)</strong></p>
 <p><strong>Draw A Game Board Solutions</strong><br/><em><strong>Exercise 24</strong></em><br/>This exercise is Part 2 of 4 of the Tic Tac Toe exercise series. The other exercises are: Part 1, Part 3, and Part 4.</p>
@@ -193,7 +203,56 @@ print('\n'.join((a, b, a, b, a, b, a)))</pre>
         if not (i == kamal):
             print ve
         i += 1</pre>
-<p><em><strong></strong></em></p><br />23(EN&CH) << <a href='23(EN&CH).html'>Previous</a> </div>
+<p><em></em><strong>CH(AN)</strong></p>
+<p>繪製遊戲板解決方案<br/>練習24<br/>此練習是Tic Tac Toe練習系列4的第2部分。其他練習是：第1部分，第3部分和第4部分。</p>
+<p>是時候購買一些假圖形了！假設我們要繪製如下游戲板：</p>
+<p>--- --- --- <br/>| | | | <br/> --- --- --- <br/>| | | | <br/> --- --- --- <br/>| | | | <br/> --- --- --- <br/>這是3x3（就像井字遊戲一樣）。顯然，它們有許多其他尺寸（國際象棋為8x8，圍棋為19x19等）。</p>
+<p>詢問用戶他們要繪製什麼尺寸的遊戲板，並使用Python的print語句將其繪製到屏幕上。</p>
+<p>請記住，在Python 3中，打印到屏幕是通過以下方式完成的：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">print("Thing to show on screen")</pre>
+<p>提示：這需要某種功能的使用，如本博客之前和Internet上其他地方所討論的，例如TutorialsPoint鏈接。</p>
+<p>樣品溶液<br/>讓我們將這項任務分解成幾個部分並使用Python 3。</p>
+<p>首先，用戶需要一個代表遊戲板尺寸的數字（假設遊戲板為n×n）。（額外的練習：擴展以下代碼以使遊戲板不方形。）。以下代碼段假定此人輸入了一個數字，並且沒有進行任何類型的錯誤檢查-暫時可以。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">board_size = int(input("What size of game board? "))</pre>
+<p>然後，我們需要繪製遊戲板的每一行。每行由水平部分（---）和垂直部分（|）組成。每一個都以一種模式顯示，因此我們可以依靠for循環來幫助進行渲染。</p>
+<p>要打印一行，我們想做這樣的事情：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">print(" --- " * board_size)</pre>
+<p>要打印行的垂直部分，我們需要這樣的東西，因為我們不在乎尾隨空格，並且因為我們想要的垂直線比板子的尺寸還要多：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> print("|   " * (board_size + 1))</pre>
+<p>對於大小為board_size的板子，我們要打印許多水平件和垂直件，並在底部再增加一個水平件。讓我們在整個操作過程中使用函數，因為我們可能想更改遊戲板上的樣式以備後用。總之，該程序將如下所示：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> def print_horiz_line():
+    print(" --- " * board_size)
+
+  def print_vert_line():
+    print("|   " * (board_size + 1))
+
+  if __name__ == "__main__":
+    board_size = int(input("What size of game board? "))
+
+    for index in range(board_size):
+      print_horiz_line()
+      print_vert_line()
+    print horiz_line()</pre>
+<p>這樣，如果我們決定通過擴大遊戲板的設計來改變它的設計，那將很容易做到！我們需要做的就是更改print_horiz_line()和print_vert_line()功能，並且一切就緒！</p>
+<p>一些不使用功能的用戶解決方案<br/>這很簡單，它特定於上面的3x3板。無法更改大小。此外，在打印語句中寫出aandb列表很繁瑣，可以通過列表理解或for循環加以改進。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">a = '---'.join('    ')
+b = '   '.join('||||')
+print('\n'.join((a, b, a, b, a, b, a)))</pre>
+<p>作者選擇使用while循環而不是for循環進行打印，這是一個有趣的選擇。但這有效！</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">def drawboard(kamal):
+    kamal = int(kamal)
+    i = 0
+    ho = "--- "
+    ve = "|   "
+    ho = ho * kamal
+    ve = ve * (kamal+1)
+    while i &lt; kamal+1:
+        print ho
+        if not (i == kamal):
+            print ve
+        i += 1
+   </pre>
+<p></p><br />23(EN&CH) << <a href='23(EN&CH).html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">

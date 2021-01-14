@@ -158,6 +158,25 @@ img.add_border {
 <p><strong><em>Gotchas and Warnings</em></strong><br/>This all seems simple enough, but there are a few caveats to the file-writing endeavor.</p>
 <p>1.You always want to make sure you close a file. The easiest strategy for this is explained above - use the with statement rather than trying to manually remember to .close() the file.<br/>2.Opening a file for writing with 'w' will overwrite any file that currently exists with that name. If you have previously written data to that file, it is now gone as soon as Python opens it.<br/>3.You can write any kind of object to any kind of file in Python, as long as you specify the correct format. The simplest thing to do is to write strings to a .txt file. But remember - you have to convert numbers or objects into strings before you write them to a file. In a later exercise, we’ll talk about writing to other formats.<br/>The best way to remember the caveats is to explore them yourself, so have at it!</p>
 <p><strong>CH(EX)</strong></p>
+<p><em>寫入文件 </em><br/>練習21（和解決方案）<br/>從“如何對網站進行解碼”練習中獲取代碼（如果您沒有這樣做，或者只是想使用一些不同的代碼，請使用解決方案中的代碼），而不是將結果打印到屏幕上，而是將結果寫到屏幕上到txt文件。在您的代碼中，只需為要保存到的文件命名。</p>
+<p><em>附加功能：</em></p>
+<p>要求用戶指定將要保存的輸出文件的名稱。<br/>討論區<br/>主題：<br/>1.寫入文件<br/>2.陷阱和警告<br/>3.保存到文件<br/>Python使寫入文件變得非常容易。根據要寫入的文件類型和要寫入的數據類型，您有很多選擇。我將向您展示最簡單的寫入文件的形式-將純文本寫入純文本文件。換句話說，將字符串寫入.txt文件。</p>
+<p>代碼如下：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">with open('file_to_save.txt', 'w') as open_file:
+    open_file.write('A string to write')</pre>
+<p>編寫相同代碼的另一種方法是這樣的：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">open_file = open('file_to_save.txt', 'w')
+  open_file.write('A string to write')
+  open_file.close()</pre>
+<p>第一種被認為是更好的編程實踐，但是第二種可能會更好地解釋第一個代碼示例中發生的事情。</p>
+<p>讓我們逐行進行。</p>
+<p>該with open('file_to_save.txt', 'w') as open_file語法是新的我們-所有這意味著內的代碼塊縮進下，會有一個叫做變量open_file將代表文件對象。您可以為此文件選擇任何名稱-它只是一個變量名。該open()函數有兩個參數-第一個是文件作為一個字符串（如果文件不存在，Python將創建它），並表示第二個參數的名稱如何文件應該被打開。您可以通過幾種方式打開文件（有關詳細信息，請參見Python的官方文檔），總之，有兩種最常見的方式：'r'和'w'。'r'代表“只讀”和'w'“只寫”（您可以使用'r+'）。您應該告訴Python您想以哪種方式打開文件-您不想修改僅查看的文件，'w'而只想讀取文件時打開文件將覆蓋舊文件。</p>
+<p>當您打開文件時，它將在與Python程序相同的目錄中查找。如果沒有使用該名稱的文件，Python將在該目錄中使用給定名稱創建一個文件。要在其他目錄中查找文件，請../根據需要使用表示法在目錄中上下移動。</p>
+<p>一旦程序with由於某種原因存在代碼塊，它將關閉文件。在第二個代碼示例案例中，我通過打開文件並將對象保存到我的變量中來創建文件對象open_file。然後，我必須記住在程序結束時手動關閉文件。這被認為是較差的編程習慣，因為如果程序中出現錯誤並且在命中該.close()語句之前終止，則在內存中的某個位置將有一個浮動的打開文件對象。您執行此操作的次數足夠多，這將成為一個問題，尤其是對於生產環境。對於使用Python來說，這通常不是問題，但是為什麼不第一次學習如何正確編程呢？</p>
+<p>該write()部分很簡單-.write()用字符串調用（如果不是字符串，請先將其轉換為字符串），然後它將寫入文件的末尾。</p>
+<p>當程序存在該with語句時，文件將自動保存。實際上，每次.write()聲明後，文件都會自動保存。</p>
+<p>陷阱和警告<br/>這一切似乎很簡單，但是文件編寫工作有一些警告。</p>
+<p>1.您始終要確保關閉文件。上面已說明了最簡單的策略-使用該with語句，而不是嘗試手動記住.close()該文件。<br/>打開要寫入的文件'w'將覆蓋該名稱當前存在的任何文件。如果您之前已將數據寫入該文件，則Python打開後立即消失。<br/>2.只要指定正確的格式，就可以在Python中將任何類型的對象寫入任何類型的文件。最簡單的方法是將字符串寫入.txt文件。但是請記住-在將數字或對象寫入文件之前，必須將其轉換為字符串。在以後的練習中，我們將討論編寫其他格式的內容。<br/>3.記住警告的最好方法是親自探索它們，因此，快來試試吧！</p>
 <p><strong>-----------------------------------------------------------------------------------------------------------</strong></p>
 <p><strong>EN(AN)</strong></p>
 <p><em><strong>Write To A File Solutions</strong></em><br/><em><strong>Exercise 21</strong></em><br/>Take the code from the How To Decode A Website exercise (if you didn’t do it or just want to play with some different code, use the code from the solution), and instead of printing the results to a screen, write the results to a txt file. In your code, just make up a name for the file you are saving to.</p>
@@ -180,7 +199,26 @@ with open(filename, 'w') as f:
           f.write(story_heading.a.text.replace("\n", " ").strip())
       else: 
           f.write(story_heading.contents[0].strip())</pre>
-<p><strong>CH(AN)</strong></p><br />homework3 << <a href='homework3.html'>Previous</a> <a href='22(EN&CH).html'>Next</a> >> 22(EN&CH)</div>
+<p><strong>CH(AN)</strong></p>
+<p><em><strong>寫入文件解決方案</strong></em><br/>練習21<br/>從“如何對網站進行解碼”練習中獲取代碼（如果您沒有這樣做，或者只是想使用一些不同的代碼，請使用解決方案中的代碼），而不是將結果打印到屏幕上，而是將結果寫到屏幕上到txt文件。在您的代碼中，只需為要保存到的文件命名。</p>
+<p>附加功能：要求用戶指定將要保存的輸出文件的名稱。<br/>樣品溶液<br/>該示例解決方案採用了練習17的即用型解決方案，並添加了兩個組件：</p>
+<p>1.向用戶詢問文件名<br/>2.print用寫入文件的語句替換每個語句<br/>這是完整的解決方案：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import requests
+from bs4 import BeautifulSoup
+ 
+base_url = 'http://www.nytimes.com'
+r = requests.get(base_url)
+soup = BeautifulSoup(r.text)
+
+filename = input("File to save to: ")
+
+with open(filename, 'w') as f:
+  for story_heading in soup.find_all(class_="story-heading"): 
+      if story_heading.a: 
+          f.write(story_heading.a.text.replace("\n", " ").strip())
+      else: 
+          f.write(story_heading.contents[0].strip())</pre>
+<p></p><br />homework3 << <a href='homework3.html'>Previous</a> <a href='22(EN&CH).html'>Next</a> >> 22(EN&CH)</div>
         
     <!-- footer -->
       <div class="container">

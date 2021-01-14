@@ -336,7 +336,29 @@ for i in range(len(cReadSplit)):
 <p><span><span>當檢測到衝突時，兩個設備都會隨機選擇一個退避時間，然後嘗試重新傳輸。</span><span>計算機分別選擇等待200毫秒和300毫秒。</span><span>時間到時，他們將嘗試檢測另一台機器是否已經在傳輸。</span><span>如果未檢測到任何內容，則第一台機器將發送其消息。</span><span>一旦完成，第二台機器將在其300毫秒的等待時間之後發送其消息。</span></span></p>
 <p><strong></strong></p>
 <h2>homework2</h2>
-<h2>homework3</h2>
+<p>http://mde.tw/cp2020/content/HW2.html 所面臨的問題是各班採用亂數分組後, 部分學員無法利用學號登記 Github 帳號, 導致當時直接利用學號作為 Github 帳號所產生的 http://mde.tw/cp2020/content/W3.html 部分內容錯誤, 在此希望採用程式流程來產生正確的 W3 分組連結內容. 但因為分組後部分學員加退選, 因此也希望透過程式方法找出各班加選或退選的學員名單, 並將尚未納組的組員加入特定組別. 另外, 當時甲班分組後並沒有像乙班將分組結合以數列儲存, 因此必須從 W3 的網站內容中設法擷取出甲班的分組數列, 以利後續進行比對或循環建立組員連結資料之用. 總結上述, HW2 計有三項主題:</p>
+<p>1.從 W3 網頁中擷取出甲班的分組數列</p>
+<p>2.比對先前分組資料與最終教務處選課名單,列出事後加選或退選人員名單</p>
+<p>3.根據組員的 Github 帳號列出正確的 W3 倉儲與網站連結</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">''' now can we read [[40723154, 40828127, 40923106, 40923108, 40923118, 40923120, 40923126, 40923128, 40923138 , 40923145, 40923150]] 
+into one dimensional list
+'''
+cp1aGroup3 = [[40723154, 40828127, 40923106, 40923108, 40923118, 40923120, 40923126, 40923128, 40923138 , 40923145, 40923150]] 
+# len() can be used to get the length of a list
+#print(len(cp1aGroup3))
+# so we can use the for loop to read group member out
+groupNum = len(cp1aGroup)
+cp1a = []
+for i in range(groupNum):
+    # use len() to get student number for each group
+    studNum = len(cp1aGroup3[i])
+    #print(cp1aGroup[i])
+    for j in range(studNum):
+        cp1a.append(cp1aGroup3[i][j])
+print(cp1a)
+# yes, we transfer two dimensional list into one diimension
+# for the next step we may need to compare two lists to find the discrepancy</pre>
+<p><img alt="" height="103" src="/images/螢幕擷取畫面 2021-01-14 220704.png" width="1010"/></p><h2>homework3</h2>
 <p>range:21.~24.</p>
 <h3>21(EN&amp;CH)</h3>
 <p><strong>EN(EX)</strong></p>
@@ -363,6 +385,25 @@ for i in range(len(cReadSplit)):
 <p><strong><em>Gotchas and Warnings</em></strong><br/>This all seems simple enough, but there are a few caveats to the file-writing endeavor.</p>
 <p>1.You always want to make sure you close a file. The easiest strategy for this is explained above - use the with statement rather than trying to manually remember to .close() the file.<br/>2.Opening a file for writing with 'w' will overwrite any file that currently exists with that name. If you have previously written data to that file, it is now gone as soon as Python opens it.<br/>3.You can write any kind of object to any kind of file in Python, as long as you specify the correct format. The simplest thing to do is to write strings to a .txt file. But remember - you have to convert numbers or objects into strings before you write them to a file. In a later exercise, we’ll talk about writing to other formats.<br/>The best way to remember the caveats is to explore them yourself, so have at it!</p>
 <p><strong>CH(EX)</strong></p>
+<p><em>寫入文件 </em><br/>練習21（和解決方案）<br/>從“如何對網站進行解碼”練習中獲取代碼（如果您沒有這樣做，或者只是想使用一些不同的代碼，請使用解決方案中的代碼），而不是將結果打印到屏幕上，而是將結果寫到屏幕上到txt文件。在您的代碼中，只需為要保存到的文件命名。</p>
+<p><em>附加功能：</em></p>
+<p>要求用戶指定將要保存的輸出文件的名稱。<br/>討論區<br/>主題：<br/>1.寫入文件<br/>2.陷阱和警告<br/>3.保存到文件<br/>Python使寫入文件變得非常容易。根據要寫入的文件類型和要寫入的數據類型，您有很多選擇。我將向您展示最簡單的寫入文件的形式-將純文本寫入純文本文件。換句話說，將字符串寫入.txt文件。</p>
+<p>代碼如下：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">with open('file_to_save.txt', 'w') as open_file:
+    open_file.write('A string to write')</pre>
+<p>編寫相同代碼的另一種方法是這樣的：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">open_file = open('file_to_save.txt', 'w')
+  open_file.write('A string to write')
+  open_file.close()</pre>
+<p>第一種被認為是更好的編程實踐，但是第二種可能會更好地解釋第一個代碼示例中發生的事情。</p>
+<p>讓我們逐行進行。</p>
+<p>該with open('file_to_save.txt', 'w') as open_file語法是新的我們-所有這意味著內的代碼塊縮進下，會有一個叫做變量open_file將代表文件對象。您可以為此文件選擇任何名稱-它只是一個變量名。該open()函數有兩個參數-第一個是文件作為一個字符串（如果文件不存在，Python將創建它），並表示第二個參數的名稱如何文件應該被打開。您可以通過幾種方式打開文件（有關詳細信息，請參見Python的官方文檔），總之，有兩種最常見的方式：'r'和'w'。'r'代表“只讀”和'w'“只寫”（您可以使用'r+'）。您應該告訴Python您想以哪種方式打開文件-您不想修改僅查看的文件，'w'而只想讀取文件時打開文件將覆蓋舊文件。</p>
+<p>當您打開文件時，它將在與Python程序相同的目錄中查找。如果沒有使用該名稱的文件，Python將在該目錄中使用給定名稱創建一個文件。要在其他目錄中查找文件，請../根據需要使用表示法在目錄中上下移動。</p>
+<p>一旦程序with由於某種原因存在代碼塊，它將關閉文件。在第二個代碼示例案例中，我通過打開文件並將對象保存到我的變量中來創建文件對象open_file。然後，我必須記住在程序結束時手動關閉文件。這被認為是較差的編程習慣，因為如果程序中出現錯誤並且在命中該.close()語句之前終止，則在內存中的某個位置將有一個浮動的打開文件對象。您執行此操作的次數足夠多，這將成為一個問題，尤其是對於生產環境。對於使用Python來說，這通常不是問題，但是為什麼不第一次學習如何正確編程呢？</p>
+<p>該write()部分很簡單-.write()用字符串調用（如果不是字符串，請先將其轉換為字符串），然後它將寫入文件的末尾。</p>
+<p>當程序存在該with語句時，文件將自動保存。實際上，每次.write()聲明後，文件都會自動保存。</p>
+<p>陷阱和警告<br/>這一切似乎很簡單，但是文件編寫工作有一些警告。</p>
+<p>1.您始終要確保關閉文件。上面已說明了最簡單的策略-使用該with語句，而不是嘗試手動記住.close()該文件。<br/>打開要寫入的文件'w'將覆蓋該名稱當前存在的任何文件。如果您之前已將數據寫入該文件，則Python打開後立即消失。<br/>2.只要指定正確的格式，就可以在Python中將任何類型的對象寫入任何類型的文件。最簡單的方法是將字符串寫入.txt文件。但是請記住-在將數字或對象寫入文件之前，必須將其轉換為字符串。在以後的練習中，我們將討論編寫其他格式的內容。<br/>3.記住警告的最好方法是親自探索它們，因此，快來試試吧！</p>
 <p><strong>-----------------------------------------------------------------------------------------------------------</strong></p>
 <p><strong>EN(AN)</strong></p>
 <p><em><strong>Write To A File Solutions</strong></em><br/><em><strong>Exercise 21</strong></em><br/>Take the code from the How To Decode A Website exercise (if you didn’t do it or just want to play with some different code, use the code from the solution), and instead of printing the results to a screen, write the results to a txt file. In your code, just make up a name for the file you are saving to.</p>
@@ -385,7 +426,26 @@ with open(filename, 'w') as f:
           f.write(story_heading.a.text.replace("\n", " ").strip())
       else: 
           f.write(story_heading.contents[0].strip())</pre>
-<p><strong>CH(AN)</strong></p><h3>22(EN&amp;CH)</h3>
+<p><strong>CH(AN)</strong></p>
+<p><em><strong>寫入文件解決方案</strong></em><br/>練習21<br/>從“如何對網站進行解碼”練習中獲取代碼（如果您沒有這樣做，或者只是想使用一些不同的代碼，請使用解決方案中的代碼），而不是將結果打印到屏幕上，而是將結果寫到屏幕上到txt文件。在您的代碼中，只需為要保存到的文件命名。</p>
+<p>附加功能：要求用戶指定將要保存的輸出文件的名稱。<br/>樣品溶液<br/>該示例解決方案採用了練習17的即用型解決方案，並添加了兩個組件：</p>
+<p>1.向用戶詢問文件名<br/>2.print用寫入文件的語句替換每個語句<br/>這是完整的解決方案：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import requests
+from bs4 import BeautifulSoup
+ 
+base_url = 'http://www.nytimes.com'
+r = requests.get(base_url)
+soup = BeautifulSoup(r.text)
+
+filename = input("File to save to: ")
+
+with open(filename, 'w') as f:
+  for story_heading in soup.find_all(class_="story-heading"): 
+      if story_heading.a: 
+          f.write(story_heading.a.text.replace("\n", " ").strip())
+      else: 
+          f.write(story_heading.contents[0].strip())</pre>
+<p></p><h3>22(EN&amp;CH)</h3>
 <p><strong>EN(EX)</strong></p>
 <p><em><strong>Read From File </strong></em><br/><em>Exercise 22 (and Solution)</em><br/>Given a .txt file that has a list of a bunch of names, count how many of each name there are in the file, and print out the results to the screen. I have a .txt file for you, if you want to use it!</p>
 <p>Extra:</p>
@@ -421,6 +481,39 @@ with open(filename, 'w') as f:
 <p>And this prints out pairs of keys and values that look like:<span> </span><code class="highlighter-rouge">(Adama, 100)</code>, etc.</p>
 <p>Because dictionaries are not ordered, looping through them does not guarantee the key / value pairs coming out in a particular order. So be careful.</p>
 <p><strong>CH(EX)</strong></p>
+<p>從文件讀取 <br/>練習22（和解決方案）<br/>給定一個.txt包含一堆名稱列表的文件，請計算該文件中每個名稱的數量，然後將結果打印到屏幕上。.txt如果您想使用它，我有一個文件供您使用！</p>
+<p>額外：</p>
+<p>不要使用.txt上面的文件（或者，如果您想挑戰，也可以使用該.txt文件），請使用此文件，併計算每個圖像的每個“類別”有多少個。該文本文件實際上是與SUN數據庫場景識別數據庫相對應的文件的列表，並且列出了圖像的文件目錄層次結構。查看文件的第一行或第二行後，將很清楚哪個部分代表場景類別。為此，您將需要記住一些有關Python 3中的字符串解析的信息。我在本文中對此進行了一些討論。<br/>討論區<br/>主題：<br/>1.讀取文件<br/>2.辭典<br/>3.讀取文件<br/>正如我之前在練習21中所討論的，讀取文件與寫入文件非常相似。但是，最好的來源始終是官方的Python 3.3文檔。</p>
+<p>簡單來說，讀取文件需要兩個步驟：</p>
+<p>1.打開文件進行讀取<br/>2.讀取！<br/>打開文件進行讀取與打開文件相同，只是使用一個不同的標誌：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">with open('file_to_read.txt', 'r') as open_file:
+    all_text = open_file.read()</pre>
+<p>請注意該'r'標誌代表“已讀”。上面的代碼示例open_file一次將全部讀取到了all_text變量中。但是，這意味著我們現在有了一個長字符串all_text，然後可以使用所需的任何字符串方法在Python中對其進行操作。</p>
+<p>從文件讀取數據的另一種方法是逐行：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">with open('file_to_read.txt', 'r') as open_file:
+  	line = open_file.readline()
+  	while line:
+    	print(line)
+    	line = open_file.readline()</pre>
+<p>代替print(line)，您可以想像對文本行進行任何操作...如果將其保存到變量中，則可以有一個字符串，然後可以使用諸如.strip()或.split()with之類的東西。</p>
+<p>辭典<br/>字典是Python將兩種數據關聯在一起的方式。在官方文件說明了一切。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> student_scores = {'Adama': 100, 'Starbuck': 75, 'Apollo': 80, 'Athena': 85, 'Agathon': 90}</pre>
+<p>字符串（或:符號左側發生的任何事情）稱為keys。當我想訪問values（:符號右邊的東西）時，我需要向字典查詢與該鍵關聯的值：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">  adama_score = student_scores['Adama']
+</pre>
+<p><strong></strong>然後，您可以修改分數並將其保存回字典：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">adama_score = student_scores['Adama']
+  adama_score += 100	% adama_score is now 200. This doesn't change the dictionary value
+  student_scores['Adama'] = adama_score		% the score in the dictionary is now updated</pre>
+<p>我不能向字典詢問與值關聯的鍵，但是我可以獲得所有鍵的列表，所有值都相同：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> all_scores = student_scores.keys()
+  all_names = student_scores.values()</pre>
+<p></p>
+<p>我可以使用in關鍵字（就像在列表中一樣），dictionary comprehensions像列表理解一樣（這些很酷，請看一下有關這些的官方知識），然後遍歷字典中的元素（語法略有不同） 。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">for pair in student_scores.items():
+  	print(pair)</pre>
+<p>而這種打印出對項和值樣子的：(Adama, 100)等</p>
+<p>由於字典沒有順序，因此遍歷字典不能保證鍵/值對以特定順序出現。所以要小心</p>
 <p><strong>-----------------------------------------------------------------------------------------------------------</strong></p>
 <p><strong>EN(AN)</strong></p>
 <p><em><strong>Read From File Solutions</strong></em><br/><em><strong>Exercise 22</strong></em><br/>Given a .txt file that has a list of a bunch of names, count how many of each name there are in the file, and print out the results to the screen. I have a .txt file for you, if you want to use it!</p>
@@ -460,6 +553,42 @@ with open('Training_01.txt') as f:
 
 print(counter_dict)</pre>
 <p>CN(AN)</p>
+<p>從文件解決方案中讀取<br/>練習22<br/>給定一個.txt包含一堆名稱列表的文件，請計算該文件中每個名稱的數量，然後將結果打印到屏幕上。.txt如果您想使用它，我有一個文件供您使用！</p>
+<p>額外：</p>
+<p>不要使用.txt上面的文件（或者，如果您想挑戰，也可以使用該.txt文件），請使用此文件，併計算每個圖像的每個“類別”有多少個。該文本文件實際上是與SUN數據庫場景識別數據庫相對應的文件的列表，並且列出了圖像的文件目錄層次結構。查看文件的第一行或第二行後，將很清楚哪個部分代表場景類別。為此，您將需要記住一些有關Python 3中的字符串解析的信息。我在本文中對此進行了一些討論。<br/>樣品溶液<br/>讀取任何文件的基本原理是，您需要一個一行地讀取每一行，如果存在下一行，則僅讀取下一行。此操作的框架代碼如下所示：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">with open('filename.txt') as f:
+  	line = f.readline()
+  	while line:
+  		print(line)
+  		line = f.readline()</pre>
+<p>基本上，打開文件後，一次讀取一行。然後，使用語句檢查該行是否存在，如果存在while line，則獲取下一行。當下次line = f.readline()調用並且沒有下一行時會發生什麼？while line下一次循環將返回False並且代碼停止。</p>
+<p>給定這個骨架，第一個解決方案將計算nameslist.txt文件中的不同名稱。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">counter_dict = {}
+with open('nameslist.txt') as f:
+	line = f.readline()
+	while line:
+		line = line.strip()
+		if line in counter_dict:
+			counter_dict[line] += 1
+		else:
+			counter_dict[line] = 1
+		line = f.readline()
+
+print(counter_dict)</pre>
+<p>The line line = line.strip() takes the string read in from the line and gets rid of all whitespaces (including the \n character). And the basic construction and update of the dictionary is very common in many applications.</p>
+<p>The second counts how many of each category of image there are in the Training_01.txt file from the SUN image database.</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">counter_dict = {}
+with open('Training_01.txt') as f:
+	line = f.readline()
+	while line:
+		line = line[3:-26]
+		if line in counter_dict:
+			counter_dict[line] += 1
+		else:
+			counter_dict[line] = 1
+		line = f.readline()
+
+print(counter_dict)</pre>
 <p></p><h3>23(EN&amp;CH)</h3>
 <p><strong>EN(EX)</strong></p>
 <p>File Overlap <br/>Exercise 23 (and Solution)<br/>Given two .txt files that have lists of numbers in them, find the numbers that are overlapping. One .txt file has a list of all prime numbers under 1000, and the other .txt file has a list of happy numbers up to 1000.</p>
@@ -468,7 +597,12 @@ print(counter_dict)</pre>
 <p>Topics:</p>
 <p>1.Reading a file, in Exercise 21<br/>2.Number types and converting to integers from strings, in Exercise 1<br/>3.Lists, in Exercise 3 and Exercise 5</p>
 <p><strong>CH(EX)</strong></p>
-<p><strong>-----------------------------------------------------------------------------------------------------------</strong></p>
+<p>文件重疊 <br/>練習23（和解決方案）<br/>給定.txt其中有數字列表的兩個文件，請查找重疊的數字。一個.txt文件包含所有小於1000的質數的列表，另一個.txt文件包含不超過1000的快樂數的列表。</p>
+<p>（如果您忘記了，質數是不能除以任何其他數字的數字。是的，快樂數是數學中的真品-您可以在Wikipedia上查找它。用一個例子可以更容易地解釋這一點，我將在下面進行說明。）</p>
+<p>討論區<br/>您需要將我之前在此博客上討論過的事情的一些想法融合在一起，因此，如果您需要在這些主題中的任何一個方面進行複習，那麼現在就有機會！當然，有許多方法可以進行此練習，因此這些只是建議。</p>
+<p>主題：</p>
+<p>1.在練習21中讀取文件<br/>2.練習1中的數字類型和從字符串轉換為整數<br/>3.練習3和5中的清單</p>
+<p><strong></strong><strong>-----------------------------------------------------------------------------------------------------------</strong></p>
 <p><strong>EN(AN)</strong></p>
 <p><em><strong>File Overlap Solutions</strong></em><br/><em><strong>Exercise 23</strong></em><br/>Given two .txt files that have lists of numbers in them, find the numbers that are overlapping. One .txt file has a list of all prime numbers under 1000, and the other .txt file has a list of happy numbers up to 1000.</p>
 <p>(If you forgot, prime numbers are numbers that can’t be divided by any other number. And yes, happy numbers are a real thing in mathematics - you can look it up on Wikipedia. The explanation is easier with an example, which I will describe below.)</p>
@@ -567,7 +701,102 @@ happieslist = filetolistofints('happynumbers.txt')
 overlaplist = [elem for elem in primeslist if elem in happieslist]
 print(overlaplist)</pre>
 <p><strong>CH(AN)</strong></p>
-<h3>24(EN&amp;CH)</h3>
+<p>文件重疊解決方案<br/>練習23<br/>給定.txt其中有數字列表的兩個文件，請查找重疊的數字。一個.txt文件包含所有小於1000的質數的列表，另一個.txt文件包含不超過1000的快樂數的列表。</p>
+<p>（如果您忘記了，質數是不能除以任何其他數字的數字。是的，快樂數是數學中的真品-您可以在Wikipedia上查找它。用一個例子可以更容易地解釋這一點，我將在下面進行說明。）</p>
+<p>樣品溶液<br/>為了簡單地看一下解決方案（不使用函數和for循環），別無所求。繼續閱讀以獲取使用函數和列表推導的解決方案以及Python 3中的詳細說明。</p>
+<p>沒有使用for循環的函數的解決方案（繼續閱讀帶有函數和解釋的函數）</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">primeslist = []
+with open('primenumbers.txt') as primesfile:
+	line = primesfile.readline()
+	while line:
+		primeslist.append(int(line))
+		line = primesfile.readline()
+
+happieslist = []
+with open('happynumbers.txt') as happiesfile:
+	line = happiesfile.readline()
+	while line:
+		happieslist.append(int(line))
+		line = happiesfile.readline()
+
+overlaplist = []
+for elem in primeslist:
+	if elem in happieslist:
+		overlaplist.append(elem)
+		
+print(overlaplist)</pre>
+<p>具有使用列表推導功能的解決方案（請繼續閱讀以獲取解釋）</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def filetolistofints(filename):
+	list_to_return = []
+	with open(filename) as f:
+		line = f.readline()
+		while line:
+			list_to_return.append(int(line))
+			line = f.readline()
+	return list_to_return
+
+primeslist = filetolistofints('primenumbers.txt')
+happieslist = filetolistofints('happynumbers.txt')
+
+overlaplist = [elem for elem in primeslist if elem in happieslist]
+print(overlaplist)</pre>
+<p>說明<br/>關於這個問題的有趣之處在於，它是先前練習的擴展，要求查找兩個列表的重疊部分。該程序現在將從計算機上某處的文件中讀取信息列表，並執行相同的重疊操作，而不是將這些列表硬編碼到文件中。</p>
+<p>要做的第一件事是打開.txt文件並將它們保存在計算機上的某個位置（最簡單的方法是與您正在使用的Python文件位於同一文件夾中）。您會注意到當您查看文件時，文件的每一行都是一個整數。接下來，在Python中，我們要打開其中一個文件並將內容（作為整數）保存到列表中。</p>
+<p>該代碼段摘自練習23中有關讀取文件的說明，它將打開文件並打印出所有行。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> with open('primenumbers.txt') as f:
+  	line = f.readline()
+  	while line:
+  		print(line)
+  		line = f.readline()</pre>
+<p>現在，我們只想將每一行作為單獨的整數保存到列表中。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">primeslist = []
+  with open('primenumbers.txt') as f:
+  	line = f.readline()
+  	while line:
+  		primeslist.append(int(line))
+  		line = f.readline()</pre>
+<p>我們要做的就是將“”更改print為append列表，並在開頭添加一個空列表。請注意，在將追加line到列表之前，請int使用int()語句將其轉換為。</p>
+<p>現在我們有一個選擇。我們可以執行兩次（複製並粘貼完全相同的代碼），也可以編寫函數隨時為我們執行此操作。</p>
+<p>為了說明起見，讓我們將其變成一個函數。我們要在這裡做的是一個函數，我將文件名提供給該函數，並且假定每一行包含一個單獨的整數，它會向我返回該文件中所有數字的列表。我們需要在代碼段上方添加兩行，即函數標頭和return語句。該函數頭是變量返回列表功能的只是名稱和return語句是線return list_of_ints在函數的結束。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> def filetolistofints(filename):
+	  list_of_ints = []
+	  with open(filename) as f:
+	  	line = f.readline()
+	  	while line:
+	  		list_of_ints.append(int(line))
+	  		line = f.readline()
+	  return list_of_ints</pre>
+<p>現在，我可以使用此功能以兩行代碼讀取兩個文件：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> primeslist = filetolistofints('primenumbers.txt')
+  happieslist = filetolistofints('happynumbers.txt')</pre>
+<p>我現在已經在我的變量primeslist和happieslist是列表，其中每個元素是在每個文件的一個單獨的行的數字。</p>
+<p>我的最後一步是找到它們之間的重疊。我可以使用兩個for循環或列表理解。（如果需要復習，練習3討論for循環，而練習7討論列表推導。）</p>
+<p>作為列表理解，您將構造一個新列表，該列表從中獲取每個元素，primeslist並且僅將其添加到我們的新列表中（如果位於內部）happieslist。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> overlaplist = [elem for elem in primeslist if elem in happieslist]</pre>
+<p>也可以使用for循環來完成此操作，如下所示：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">  overlaplist = []
+  for elem in primeslist:
+    if elem in happieslist:
+      overlaplist.append(elem)</pre>
+<p>並且當循環完成時，overlaplist將包含所有重疊的元素。</p>
+<p>現在，我們可以打印結果（使用Python 3語法）並完成。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> print(overlaplist)</pre>
+<p>為了再次獲得一個完整而簡潔的解決方案，這裡是：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def filetolistofints(filename):
+	list_to_return = []
+	with open(filename) as f:
+		line = f.readline()
+		while line:
+			list_to_return.append(int(line))
+			line = f.readline()
+	return list_to_return
+
+primeslist = filetolistofints('primenumbers.txt')
+happieslist = filetolistofints('happynumbers.txt')
+
+overlaplist = [elem for elem in primeslist if elem in happieslist]
+print(overlaplist)</pre>
+<p></p><h3>24(EN&amp;CH)</h3>
 <p><strong>EN(EX)</strong></p>
 <p><em><strong>Exercise 24 (and Solution)</strong></em><br/>This exercise is Part 1 of 4 of the Tic Tac Toe exercise series. The other exercises are: Part 2, Part 3, and Part 4.</p>
 <p>Time for some fake graphics! Let’s say we want to draw game boards that look like this:</p>
@@ -578,6 +807,16 @@ print(overlaplist)</pre>
 <p><strong><em>Topics and links for more information</em></strong><br/>The main topic of this exercise is functions. They are tricky, and deserve lots of practice and thought. Here are a few links in case you want some more reading.</p>
 <p>1.Functions on TutorialsPoint<br/>2.Hands-on Python, by Loyola University<br/>3.Learn Python the Hard Way<br/>4.ZetCode<br/>There are hundreds more out there - read and practice away!</p>
 <p><strong>CH(EX)</strong></p>
+<p>畫遊戲板 <br/>練習24（和解決方案）<br/>此練習是Tic Tac Toe練習系列4的第1部分。其他練習是：第2部分，第3部分和第4部分。</p>
+<p>是時候購買一些假圖形了！假設我們要繪製如下游戲板：</p>
+<p>--- --- --- <br/>| | | | <br/> --- --- --- <br/>| | | | <br/> --- --- --- <br/>| | | | <br/> --- --- --- <br/>這是3x3（就像井字遊戲一樣）。顯然，它們有許多其他尺寸（國際象棋為8x8，圍棋為19x19等）。</p>
+<p>詢問用戶他們要繪製什麼尺寸的遊戲板，並使用Python的print語句將其繪製到屏幕上。</p>
+<p>請記住，在Python 3中，打印到屏幕是通過以下方式完成的：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false"> print("Thing to show on screen")</pre>
+<p></p>
+<p>提示：這需要某種功能的使用，如本博客之前和Internet上其他地方所討論的，例如TutorialsPoint鏈接。</p>
+<p>主題和鏈接，以獲取更多信息<br/>本練習的主要主題是功能。它們很棘手，值得大量實踐和思考。這裡有一些鏈接，以備您需要更多閱讀。</p>
+<p>1.TutorialsPoint上的功能<br/>2.Loyola University的動手Python<br/>3.艱苦學習Python<br/>4.PutCode</p>
 <p><strong>-----------------------------------------------------------------------------------------------------------</strong></p>
 <p><strong>EN(AN)</strong></p>
 <p><strong>Draw A Game Board Solutions</strong><br/><em><strong>Exercise 24</strong></em><br/>This exercise is Part 2 of 4 of the Tic Tac Toe exercise series. The other exercises are: Part 1, Part 3, and Part 4.</p>
@@ -627,4 +866,53 @@ print('\n'.join((a, b, a, b, a, b, a)))</pre>
         if not (i == kamal):
             print ve
         i += 1</pre>
-<p><em><strong></strong></em></p>
+<p><em></em><strong>CH(AN)</strong></p>
+<p>繪製遊戲板解決方案<br/>練習24<br/>此練習是Tic Tac Toe練習系列4的第2部分。其他練習是：第1部分，第3部分和第4部分。</p>
+<p>是時候購買一些假圖形了！假設我們要繪製如下游戲板：</p>
+<p>--- --- --- <br/>| | | | <br/> --- --- --- <br/>| | | | <br/> --- --- --- <br/>| | | | <br/> --- --- --- <br/>這是3x3（就像井字遊戲一樣）。顯然，它們有許多其他尺寸（國際象棋為8x8，圍棋為19x19等）。</p>
+<p>詢問用戶他們要繪製什麼尺寸的遊戲板，並使用Python的print語句將其繪製到屏幕上。</p>
+<p>請記住，在Python 3中，打印到屏幕是通過以下方式完成的：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">print("Thing to show on screen")</pre>
+<p>提示：這需要某種功能的使用，如本博客之前和Internet上其他地方所討論的，例如TutorialsPoint鏈接。</p>
+<p>樣品溶液<br/>讓我們將這項任務分解成幾個部分並使用Python 3。</p>
+<p>首先，用戶需要一個代表遊戲板尺寸的數字（假設遊戲板為n×n）。（額外的練習：擴展以下代碼以使遊戲板不方形。）。以下代碼段假定此人輸入了一個數字，並且沒有進行任何類型的錯誤檢查-暫時可以。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">board_size = int(input("What size of game board? "))</pre>
+<p>然後，我們需要繪製遊戲板的每一行。每行由水平部分（---）和垂直部分（|）組成。每一個都以一種模式顯示，因此我們可以依靠for循環來幫助進行渲染。</p>
+<p>要打印一行，我們想做這樣的事情：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">print(" --- " * board_size)</pre>
+<p>要打印行的垂直部分，我們需要這樣的東西，因為我們不在乎尾隨空格，並且因為我們想要的垂直線比板子的尺寸還要多：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> print("|   " * (board_size + 1))</pre>
+<p>對於大小為board_size的板子，我們要打印許多水平件和垂直件，並在底部再增加一個水平件。讓我們在整個操作過程中使用函數，因為我們可能想更改遊戲板上的樣式以備後用。總之，該程序將如下所示：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> def print_horiz_line():
+    print(" --- " * board_size)
+
+  def print_vert_line():
+    print("|   " * (board_size + 1))
+
+  if __name__ == "__main__":
+    board_size = int(input("What size of game board? "))
+
+    for index in range(board_size):
+      print_horiz_line()
+      print_vert_line()
+    print horiz_line()</pre>
+<p>這樣，如果我們決定通過擴大遊戲板的設計來改變它的設計，那將很容易做到！我們需要做的就是更改print_horiz_line()和print_vert_line()功能，並且一切就緒！</p>
+<p>一些不使用功能的用戶解決方案<br/>這很簡單，它特定於上面的3x3板。無法更改大小。此外，在打印語句中寫出aandb列表很繁瑣，可以通過列表理解或for循環加以改進。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">a = '---'.join('    ')
+b = '   '.join('||||')
+print('\n'.join((a, b, a, b, a, b, a)))</pre>
+<p>作者選擇使用while循環而不是for循環進行打印，這是一個有趣的選擇。但這有效！</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">def drawboard(kamal):
+    kamal = int(kamal)
+    i = 0
+    ho = "--- "
+    ve = "|   "
+    ho = ho * kamal
+    ve = ve * (kamal+1)
+    while i &lt; kamal+1:
+        print ho
+        if not (i == kamal):
+            print ve
+        i += 1
+   </pre>
+<p></p>

@@ -169,6 +169,39 @@ img.add_border {
 <p>And this prints out pairs of keys and values that look like:<span> </span><code class="highlighter-rouge">(Adama, 100)</code>, etc.</p>
 <p>Because dictionaries are not ordered, looping through them does not guarantee the key / value pairs coming out in a particular order. So be careful.</p>
 <p><strong>CH(EX)</strong></p>
+<p>從文件讀取 <br/>練習22（和解決方案）<br/>給定一個.txt包含一堆名稱列表的文件，請計算該文件中每個名稱的數量，然後將結果打印到屏幕上。.txt如果您想使用它，我有一個文件供您使用！</p>
+<p>額外：</p>
+<p>不要使用.txt上面的文件（或者，如果您想挑戰，也可以使用該.txt文件），請使用此文件，併計算每個圖像的每個“類別”有多少個。該文本文件實際上是與SUN數據庫場景識別數據庫相對應的文件的列表，並且列出了圖像的文件目錄層次結構。查看文件的第一行或第二行後，將很清楚哪個部分代表場景類別。為此，您將需要記住一些有關Python 3中的字符串解析的信息。我在本文中對此進行了一些討論。<br/>討論區<br/>主題：<br/>1.讀取文件<br/>2.辭典<br/>3.讀取文件<br/>正如我之前在練習21中所討論的，讀取文件與寫入文件非常相似。但是，最好的來源始終是官方的Python 3.3文檔。</p>
+<p>簡單來說，讀取文件需要兩個步驟：</p>
+<p>1.打開文件進行讀取<br/>2.讀取！<br/>打開文件進行讀取與打開文件相同，只是使用一個不同的標誌：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">with open('file_to_read.txt', 'r') as open_file:
+    all_text = open_file.read()</pre>
+<p>請注意該'r'標誌代表“已讀”。上面的代碼示例open_file一次將全部讀取到了all_text變量中。但是，這意味著我們現在有了一個長字符串all_text，然後可以使用所需的任何字符串方法在Python中對其進行操作。</p>
+<p>從文件讀取數據的另一種方法是逐行：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">with open('file_to_read.txt', 'r') as open_file:
+  	line = open_file.readline()
+  	while line:
+    	print(line)
+    	line = open_file.readline()</pre>
+<p>代替print(line)，您可以想像對文本行進行任何操作...如果將其保存到變量中，則可以有一個字符串，然後可以使用諸如.strip()或.split()with之類的東西。</p>
+<p>辭典<br/>字典是Python將兩種數據關聯在一起的方式。在官方文件說明了一切。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> student_scores = {'Adama': 100, 'Starbuck': 75, 'Apollo': 80, 'Athena': 85, 'Agathon': 90}</pre>
+<p>字符串（或:符號左側發生的任何事情）稱為keys。當我想訪問values（:符號右邊的東西）時，我需要向字典查詢與該鍵關聯的值：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">  adama_score = student_scores['Adama']
+</pre>
+<p><strong></strong>然後，您可以修改分數並將其保存回字典：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">adama_score = student_scores['Adama']
+  adama_score += 100	% adama_score is now 200. This doesn't change the dictionary value
+  student_scores['Adama'] = adama_score		% the score in the dictionary is now updated</pre>
+<p>我不能向字典詢問與值關聯的鍵，但是我可以獲得所有鍵的列表，所有值都相同：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> all_scores = student_scores.keys()
+  all_names = student_scores.values()</pre>
+<p></p>
+<p>我可以使用in關鍵字（就像在列表中一樣），dictionary comprehensions像列表理解一樣（這些很酷，請看一下有關這些的官方知識），然後遍歷字典中的元素（語法略有不同） 。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">for pair in student_scores.items():
+  	print(pair)</pre>
+<p>而這種打印出對項和值樣子的：(Adama, 100)等</p>
+<p>由於字典沒有順序，因此遍歷字典不能保證鍵/值對以特定順序出現。所以要小心</p>
 <p><strong>-----------------------------------------------------------------------------------------------------------</strong></p>
 <p><strong>EN(AN)</strong></p>
 <p><em><strong>Read From File Solutions</strong></em><br/><em><strong>Exercise 22</strong></em><br/>Given a .txt file that has a list of a bunch of names, count how many of each name there are in the file, and print out the results to the screen. I have a .txt file for you, if you want to use it!</p>
@@ -208,6 +241,42 @@ with open('Training_01.txt') as f:
 
 print(counter_dict)</pre>
 <p>CN(AN)</p>
+<p>從文件解決方案中讀取<br/>練習22<br/>給定一個.txt包含一堆名稱列表的文件，請計算該文件中每個名稱的數量，然後將結果打印到屏幕上。.txt如果您想使用它，我有一個文件供您使用！</p>
+<p>額外：</p>
+<p>不要使用.txt上面的文件（或者，如果您想挑戰，也可以使用該.txt文件），請使用此文件，併計算每個圖像的每個“類別”有多少個。該文本文件實際上是與SUN數據庫場景識別數據庫相對應的文件的列表，並且列出了圖像的文件目錄層次結構。查看文件的第一行或第二行後，將很清楚哪個部分代表場景類別。為此，您將需要記住一些有關Python 3中的字符串解析的信息。我在本文中對此進行了一些討論。<br/>樣品溶液<br/>讀取任何文件的基本原理是，您需要一個一行地讀取每一行，如果存在下一行，則僅讀取下一行。此操作的框架代碼如下所示：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">with open('filename.txt') as f:
+  	line = f.readline()
+  	while line:
+  		print(line)
+  		line = f.readline()</pre>
+<p>基本上，打開文件後，一次讀取一行。然後，使用語句檢查該行是否存在，如果存在while line，則獲取下一行。當下次line = f.readline()調用並且沒有下一行時會發生什麼？while line下一次循環將返回False並且代碼停止。</p>
+<p>給定這個骨架，第一個解決方案將計算nameslist.txt文件中的不同名稱。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">counter_dict = {}
+with open('nameslist.txt') as f:
+	line = f.readline()
+	while line:
+		line = line.strip()
+		if line in counter_dict:
+			counter_dict[line] += 1
+		else:
+			counter_dict[line] = 1
+		line = f.readline()
+
+print(counter_dict)</pre>
+<p>The line line = line.strip() takes the string read in from the line and gets rid of all whitespaces (including the \n character). And the basic construction and update of the dictionary is very common in many applications.</p>
+<p>The second counts how many of each category of image there are in the Training_01.txt file from the SUN image database.</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">counter_dict = {}
+with open('Training_01.txt') as f:
+	line = f.readline()
+	while line:
+		line = line[3:-26]
+		if line in counter_dict:
+			counter_dict[line] += 1
+		else:
+			counter_dict[line] = 1
+		line = f.readline()
+
+print(counter_dict)</pre>
 <p></p><br />21(EN&CH) << <a href='21(EN&CH).html'>Previous</a> <a href='23(EN&CH).html'>Next</a> >> 23(EN&CH)</div>
         
     <!-- footer -->

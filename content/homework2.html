@@ -134,7 +134,29 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">中文(從P77開始) << <a href='中文(從P77開始).html'>Previous</a> <a href='homework3.html'>Next</a> >> homework3<br /><h1>homework2</h1>
-<br />中文(從P77開始) << <a href='中文(從P77開始).html'>Previous</a> <a href='homework3.html'>Next</a> >> homework3</div>
+<p>http://mde.tw/cp2020/content/HW2.html 所面臨的問題是各班採用亂數分組後, 部分學員無法利用學號登記 Github 帳號, 導致當時直接利用學號作為 Github 帳號所產生的 http://mde.tw/cp2020/content/W3.html 部分內容錯誤, 在此希望採用程式流程來產生正確的 W3 分組連結內容. 但因為分組後部分學員加退選, 因此也希望透過程式方法找出各班加選或退選的學員名單, 並將尚未納組的組員加入特定組別. 另外, 當時甲班分組後並沒有像乙班將分組結合以數列儲存, 因此必須從 W3 的網站內容中設法擷取出甲班的分組數列, 以利後續進行比對或循環建立組員連結資料之用. 總結上述, HW2 計有三項主題:</p>
+<p>1.從 W3 網頁中擷取出甲班的分組數列</p>
+<p>2.比對先前分組資料與最終教務處選課名單,列出事後加選或退選人員名單</p>
+<p>3.根據組員的 Github 帳號列出正確的 W3 倉儲與網站連結</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">''' now can we read [[40723154, 40828127, 40923106, 40923108, 40923118, 40923120, 40923126, 40923128, 40923138 , 40923145, 40923150]] 
+into one dimensional list
+'''
+cp1aGroup3 = [[40723154, 40828127, 40923106, 40923108, 40923118, 40923120, 40923126, 40923128, 40923138 , 40923145, 40923150]] 
+# len() can be used to get the length of a list
+#print(len(cp1aGroup3))
+# so we can use the for loop to read group member out
+groupNum = len(cp1aGroup)
+cp1a = []
+for i in range(groupNum):
+    # use len() to get student number for each group
+    studNum = len(cp1aGroup3[i])
+    #print(cp1aGroup[i])
+    for j in range(studNum):
+        cp1a.append(cp1aGroup3[i][j])
+print(cp1a)
+# yes, we transfer two dimensional list into one diimension
+# for the next step we may need to compare two lists to find the discrepancy</pre>
+<p><img alt="" height="103" src="./../images/螢幕擷取畫面 2021-01-14 220704.png" width="1010"/></p><br />中文(從P77開始) << <a href='中文(從P77開始).html'>Previous</a> <a href='homework3.html'>Next</a> >> homework3</div>
         
     <!-- footer -->
       <div class="container">

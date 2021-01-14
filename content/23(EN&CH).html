@@ -141,7 +141,12 @@ img.add_border {
 <p>Topics:</p>
 <p>1.Reading a file, in Exercise 21<br/>2.Number types and converting to integers from strings, in Exercise 1<br/>3.Lists, in Exercise 3 and Exercise 5</p>
 <p><strong>CH(EX)</strong></p>
-<p><strong>-----------------------------------------------------------------------------------------------------------</strong></p>
+<p>文件重疊 <br/>練習23（和解決方案）<br/>給定.txt其中有數字列表的兩個文件，請查找重疊的數字。一個.txt文件包含所有小於1000的質數的列表，另一個.txt文件包含不超過1000的快樂數的列表。</p>
+<p>（如果您忘記了，質數是不能除以任何其他數字的數字。是的，快樂數是數學中的真品-您可以在Wikipedia上查找它。用一個例子可以更容易地解釋這一點，我將在下面進行說明。）</p>
+<p>討論區<br/>您需要將我之前在此博客上討論過的事情的一些想法融合在一起，因此，如果您需要在這些主題中的任何一個方面進行複習，那麼現在就有機會！當然，有許多方法可以進行此練習，因此這些只是建議。</p>
+<p>主題：</p>
+<p>1.在練習21中讀取文件<br/>2.練習1中的數字類型和從字符串轉換為整數<br/>3.練習3和5中的清單</p>
+<p><strong></strong><strong>-----------------------------------------------------------------------------------------------------------</strong></p>
 <p><strong>EN(AN)</strong></p>
 <p><em><strong>File Overlap Solutions</strong></em><br/><em><strong>Exercise 23</strong></em><br/>Given two .txt files that have lists of numbers in them, find the numbers that are overlapping. One .txt file has a list of all prime numbers under 1000, and the other .txt file has a list of happy numbers up to 1000.</p>
 <p>(If you forgot, prime numbers are numbers that can’t be divided by any other number. And yes, happy numbers are a real thing in mathematics - you can look it up on Wikipedia. The explanation is easier with an example, which I will describe below.)</p>
@@ -240,7 +245,102 @@ happieslist = filetolistofints('happynumbers.txt')
 overlaplist = [elem for elem in primeslist if elem in happieslist]
 print(overlaplist)</pre>
 <p><strong>CH(AN)</strong></p>
-<br />22(EN&CH) << <a href='22(EN&CH).html'>Previous</a> <a href='24(EN&CH).html'>Next</a> >> 24(EN&CH)</div>
+<p>文件重疊解決方案<br/>練習23<br/>給定.txt其中有數字列表的兩個文件，請查找重疊的數字。一個.txt文件包含所有小於1000的質數的列表，另一個.txt文件包含不超過1000的快樂數的列表。</p>
+<p>（如果您忘記了，質數是不能除以任何其他數字的數字。是的，快樂數是數學中的真品-您可以在Wikipedia上查找它。用一個例子可以更容易地解釋這一點，我將在下面進行說明。）</p>
+<p>樣品溶液<br/>為了簡單地看一下解決方案（不使用函數和for循環），別無所求。繼續閱讀以獲取使用函數和列表推導的解決方案以及Python 3中的詳細說明。</p>
+<p>沒有使用for循環的函數的解決方案（繼續閱讀帶有函數和解釋的函數）</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">primeslist = []
+with open('primenumbers.txt') as primesfile:
+	line = primesfile.readline()
+	while line:
+		primeslist.append(int(line))
+		line = primesfile.readline()
+
+happieslist = []
+with open('happynumbers.txt') as happiesfile:
+	line = happiesfile.readline()
+	while line:
+		happieslist.append(int(line))
+		line = happiesfile.readline()
+
+overlaplist = []
+for elem in primeslist:
+	if elem in happieslist:
+		overlaplist.append(elem)
+		
+print(overlaplist)</pre>
+<p>具有使用列表推導功能的解決方案（請繼續閱讀以獲取解釋）</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def filetolistofints(filename):
+	list_to_return = []
+	with open(filename) as f:
+		line = f.readline()
+		while line:
+			list_to_return.append(int(line))
+			line = f.readline()
+	return list_to_return
+
+primeslist = filetolistofints('primenumbers.txt')
+happieslist = filetolistofints('happynumbers.txt')
+
+overlaplist = [elem for elem in primeslist if elem in happieslist]
+print(overlaplist)</pre>
+<p>說明<br/>關於這個問題的有趣之處在於，它是先前練習的擴展，要求查找兩個列表的重疊部分。該程序現在將從計算機上某處的文件中讀取信息列表，並執行相同的重疊操作，而不是將這些列表硬編碼到文件中。</p>
+<p>要做的第一件事是打開.txt文件並將它們保存在計算機上的某個位置（最簡單的方法是與您正在使用的Python文件位於同一文件夾中）。您會注意到當您查看文件時，文件的每一行都是一個整數。接下來，在Python中，我們要打開其中一個文件並將內容（作為整數）保存到列表中。</p>
+<p>該代碼段摘自練習23中有關讀取文件的說明，它將打開文件並打印出所有行。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> with open('primenumbers.txt') as f:
+  	line = f.readline()
+  	while line:
+  		print(line)
+  		line = f.readline()</pre>
+<p>現在，我們只想將每一行作為單獨的整數保存到列表中。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">primeslist = []
+  with open('primenumbers.txt') as f:
+  	line = f.readline()
+  	while line:
+  		primeslist.append(int(line))
+  		line = f.readline()</pre>
+<p>我們要做的就是將“”更改print為append列表，並在開頭添加一個空列表。請注意，在將追加line到列表之前，請int使用int()語句將其轉換為。</p>
+<p>現在我們有一個選擇。我們可以執行兩次（複製並粘貼完全相同的代碼），也可以編寫函數隨時為我們執行此操作。</p>
+<p>為了說明起見，讓我們將其變成一個函數。我們要在這裡做的是一個函數，我將文件名提供給該函數，並且假定每一行包含一個單獨的整數，它會向我返回該文件中所有數字的列表。我們需要在代碼段上方添加兩行，即函數標頭和return語句。該函數頭是變量返回列表功能的只是名稱和return語句是線return list_of_ints在函數的結束。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> def filetolistofints(filename):
+	  list_of_ints = []
+	  with open(filename) as f:
+	  	line = f.readline()
+	  	while line:
+	  		list_of_ints.append(int(line))
+	  		line = f.readline()
+	  return list_of_ints</pre>
+<p>現在，我可以使用此功能以兩行代碼讀取兩個文件：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> primeslist = filetolistofints('primenumbers.txt')
+  happieslist = filetolistofints('happynumbers.txt')</pre>
+<p>我現在已經在我的變量primeslist和happieslist是列表，其中每個元素是在每個文件的一個單獨的行的數字。</p>
+<p>我的最後一步是找到它們之間的重疊。我可以使用兩個for循環或列表理解。（如果需要復習，練習3討論for循環，而練習7討論列表推導。）</p>
+<p>作為列表理解，您將構造一個新列表，該列表從中獲取每個元素，primeslist並且僅將其添加到我們的新列表中（如果位於內部）happieslist。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> overlaplist = [elem for elem in primeslist if elem in happieslist]</pre>
+<p>也可以使用for循環來完成此操作，如下所示：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">  overlaplist = []
+  for elem in primeslist:
+    if elem in happieslist:
+      overlaplist.append(elem)</pre>
+<p>並且當循環完成時，overlaplist將包含所有重疊的元素。</p>
+<p>現在，我們可以打印結果（使用Python 3語法）並完成。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> print(overlaplist)</pre>
+<p>為了再次獲得一個完整而簡潔的解決方案，這裡是：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def filetolistofints(filename):
+	list_to_return = []
+	with open(filename) as f:
+		line = f.readline()
+		while line:
+			list_to_return.append(int(line))
+			line = f.readline()
+	return list_to_return
+
+primeslist = filetolistofints('primenumbers.txt')
+happieslist = filetolistofints('happynumbers.txt')
+
+overlaplist = [elem for elem in primeslist if elem in happieslist]
+print(overlaplist)</pre>
+<p></p><br />22(EN&CH) << <a href='22(EN&CH).html'>Previous</a> <a href='24(EN&CH).html'>Next</a> >> 24(EN&CH)</div>
         
     <!-- footer -->
       <div class="container">
